@@ -27,7 +27,7 @@ The app must enable async Svelte and remote functions in its `vite.config.ts`
 
 `showcase/` is a SvelteKit app rendering every component live (ui.pureleaves.co.uk).
 `pnpm showcase:dev`, `pnpm showcase:build`. It deploys on push to main
-(`deploy-showcase.yaml`, using the org secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`).
+(`deploy-showcase.yaml`, with `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` from the `production` environment, which only `main` can use).
 
 ## Versions
 

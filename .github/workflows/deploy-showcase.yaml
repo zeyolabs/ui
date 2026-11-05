@@ -1,7 +1,8 @@
 name: Deploy showcase
 
 # Deploys showcase/ (ui.pureleaves.co.uk) on every push to main.
-# Uses the zeyolabs org secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
+# CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID come from the production environment, which only
+# accepts jobs from main: branches and pull requests can never reach them.
 on:
   push:
     branches: [main]
@@ -17,6 +18,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
