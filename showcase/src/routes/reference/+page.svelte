@@ -91,7 +91,7 @@
 </script>
 
 <svelte:head>
-	<title>Reference — Pure Leaves UI</title>
+	<title>Reference — Zeyo UI</title>
 </svelte:head>
 
 <PageHero
@@ -103,9 +103,9 @@
 <ShowcaseSection
 	code={`<BackButton href={resolve('components/buttons')} label="Buttons" />
 <CopyButton clipboardText={async () => 'npm install @zeyolabs/ui'} />
-<CopyArea clipboardText={async () => 'pureleaves'}>
+<CopyArea clipboardText={async () => 'zeyo'}>
   {#snippet children({ copied, onclick })}
-    <button {onclick}>{copied ? 'Copied!' : 'pureleaves'}</button>
+    <button {onclick}>{copied ? 'Copied!' : 'zeyo'}</button>
   {/snippet}
 </CopyArea>`}
 	description="Three small pieces that didn't earn their own page. CopyButton is already doing real work — it's what renders the copy button on every code block on this site."
@@ -113,10 +113,10 @@
 >
 	<BackButton href={resolve('components/buttons')} label="Buttons" />
 	<CopyButton clipboardText={() => Promise.resolve('npm install @zeyolabs/ui')} />
-	<CopyArea clipboardText={() => Promise.resolve('pureleaves')}>
+	<CopyArea clipboardText={() => Promise.resolve('zeyo')}>
 		{#snippet children({ copied, onclick, onkeydown })}
 			<button class="copy-area-demo" {onclick} {onkeydown} type="button">
-				{copied ? 'Copied!' : 'pureleaves'}
+				{copied ? 'Copied!' : 'zeyo'}
 			</button>
 		{/snippet}
 	</CopyArea>

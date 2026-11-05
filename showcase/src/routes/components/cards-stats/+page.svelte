@@ -43,7 +43,7 @@
 </script>
 
 <svelte:head>
-	<title>Cards &amp; data — Pure Leaves UI</title>
+	<title>Cards &amp; data — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

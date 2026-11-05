@@ -17,7 +17,7 @@
 </script>
 
 <svelte:head>
-	<title>Buttons — Pure Leaves UI</title>
+	<title>Buttons — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

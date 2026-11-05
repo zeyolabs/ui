@@ -48,7 +48,7 @@
 </script>
 
 <svelte:head>
-	<title>Forms — Pure Leaves UI</title>
+	<title>Forms — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

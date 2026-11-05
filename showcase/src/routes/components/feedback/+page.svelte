@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-	<title>Feedback — Pure Leaves UI</title>
+	<title>Feedback — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

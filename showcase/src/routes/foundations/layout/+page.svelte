@@ -46,7 +46,7 @@
 </script>
 
 <svelte:head>
-	<title>Layout — Pure Leaves UI</title>
+	<title>Layout — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

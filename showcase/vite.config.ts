@@ -20,7 +20,7 @@ export default defineConfig({
 					'form-action': ['self'],
 					'frame-ancestors': ['none'],
 					'frame-src': ['about:'],
-					'img-src': ['self', 'data:', 'https://images.pureleaves.co.uk'],
+					'img-src': ['self', 'data:'],
 					'object-src': ['none'],
 					'script-src': ['self'],
 					'style-src': ['self', 'unsafe-inline', 'https://fonts.googleapis.com'],

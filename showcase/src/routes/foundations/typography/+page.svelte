@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-	<title>Typography — Pure Leaves UI</title>
+	<title>Typography — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

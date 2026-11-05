@@ -119,7 +119,7 @@
 {/snippet}
 
 <svelte:head>
-	<title>Components — Pure Leaves UI</title>
+	<title>Components — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

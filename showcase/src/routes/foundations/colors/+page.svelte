@@ -64,7 +64,7 @@
 </script>
 
 <svelte:head>
-	<title>Colors — Pure Leaves UI</title>
+	<title>Colors — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

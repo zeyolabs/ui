@@ -73,7 +73,7 @@
 </script>
 
 <svelte:head>
-	<title>Overlays &amp; tabs — Pure Leaves UI</title>
+	<title>Overlays &amp; tabs — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

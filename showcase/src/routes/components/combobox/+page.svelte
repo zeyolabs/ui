@@ -43,7 +43,7 @@
 </script>
 
 <svelte:head>
-	<title>Combobox — Pure Leaves UI</title>
+	<title>Combobox — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

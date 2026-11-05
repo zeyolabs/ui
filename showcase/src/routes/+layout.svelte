@@ -19,7 +19,7 @@
 	<aside class="sidebar">
 		<a class="wordmark" href={resolve('/')}>
 			<span class="wordmark-dot"></span>
-			Pure Leaves UI
+			Zeyo UI
 		</a>
 
 		<nav>

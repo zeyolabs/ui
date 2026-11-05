@@ -77,7 +77,7 @@
 </script>
 
 <svelte:head>
-	<title>Badges &amp; status — Pure Leaves UI</title>
+	<title>Badges &amp; status — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

@@ -1,12 +1,12 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "pureleaves-ui",
+	"name": "zeyo-ui",
 	"main": ".svelte-kit/cloudflare/_worker.js",
 	"compatibility_date": "2026-04-21",
 	"compatibility_flags": ["nodejs_compat"],
 	"workers_dev": false,
 	"preview_urls": false,
-	"routes": [{ "pattern": "ui.pureleaves.co.uk", "custom_domain": true }],
+	"routes": [{ "pattern": "ui.zeyo.dev", "custom_domain": true }],
 	"assets": {
 		"binding": "ASSETS",
 		"directory": ".svelte-kit/cloudflare",

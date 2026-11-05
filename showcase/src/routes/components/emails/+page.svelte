@@ -11,22 +11,22 @@
 		accentDark: '#4a6a12',
 		accentSoft: '#e2edb1',
 		address: '59 Central Road, Worcester Park, KT4 8EB',
-		name: 'Pure Leaves',
-		supportEmail: 'support@pureleaves.co.uk',
+		name: 'Example Shop',
+		supportEmail: 'support@example.com',
 	};
 
 	const order: EmailParams = {
 		badge: 'Paid',
 		brand,
-		cta: { href: 'https://pureleaves.co.uk/shipping', label: 'Delivery and returns' },
-		eyebrow: 'Order PL-7K3M9Q',
-		footnote: 'Keep this email as your receipt. Quote PL-7K3M9Q if you contact us.',
+		cta: { href: 'https://example.com/shipping', label: 'Delivery and returns' },
+		eyebrow: 'Order EX-7K3M9Q',
+		footnote: 'Keep this email as your receipt. Quote EX-7K3M9Q if you contact us.',
 		heading: 'Thank you, Sam',
 		intro: [
 			'We have your order and your payment of £40.50. We will pack it carefully and send it by Royal Mail.',
 			'UK orders usually arrive 2 to 10 working days after dispatch.',
 		],
-		preheader: 'Order PL-7K3M9Q is confirmed. Thank you for shopping with Pure Leaves.',
+		preheader: 'Order EX-7K3M9Q is confirmed. Thank you for shopping with Example Shop.',
 		sections: [
 			{
 				rows: [
@@ -51,7 +51,7 @@
 </script>
 
 <svelte:head>
-	<title>Emails — Pure Leaves UI</title>
+	<title>Emails — Zeyo UI</title>
 </svelte:head>
 
 <PageHero

@@ -62,13 +62,13 @@
 </script>
 
 <svelte:head>
-	<title>Pure Leaves UI</title>
+	<title>Zeyo UI</title>
 </svelte:head>
 
 <PageHero
-	eyebrow="ui.pureleaves.co.uk"
+	eyebrow="ui.zeyo.dev"
 	sub="A living reference for @zeyolabs/ui, the component library behind the shop. Everything shown here renders the real components against the real design tokens, with the source underneath."
-	title="Pure Leaves UI"
+	title="Zeyo UI"
 />
 
 <Section spacing="lg">
@@ -76,9 +76,9 @@
 		<Card gap="xs" padding="md">
 			<Eyebrow>What this is</Eyebrow>
 			<Text color="secondary" size="sm">
-				The old Pure Leaves site was built from one-off CSS and hand-rolled buttons. This app is the
-				antidote: one place that renders the shared primitives live, so "does this exist already?"
-				has a fast answer. The only Pure Leaves-specific part is the colour palette.
+				One place that renders every shared primitive live, so "does this exist already?" has a fast
+				answer before anyone writes one-off CSS or a hand-rolled button. Apps bring only their own
+				colour palette.
 			</Text>
 		</Card>
 		<Card gap="xs" padding="md">

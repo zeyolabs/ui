@@ -127,7 +127,7 @@
 {/snippet}
 
 <svelte:head>
-	<title>Tables — Pure Leaves UI</title>
+	<title>Tables — Zeyo UI</title>
 </svelte:head>
 
 <PageHero
