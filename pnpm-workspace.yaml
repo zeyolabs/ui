@@ -7,5 +7,7 @@ allowBuilds:
   sharp: true
   workerd: true
 
+# Our own packages are trusted the day they are released; everything else waits out pnpm's
+# minimumReleaseAge supply-chain delay.
 minimumReleaseAgeExclude:
-  - '@zeyolabs/kit@2026.11.5'
+  - '@zeyolabs/*'
