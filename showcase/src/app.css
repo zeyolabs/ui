@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@import '@zeyolabs/ui/template.css' layer(components);
+@import '@zeyolabs/ui/typography.css';
+@import '@zeyolabs/ui/spacing.css';
+@import '@zeyolabs/ui/tokens.css';
+@import '@zeyolabs/ui/base.css';
+
+@source "../node_modules/@zeyolabs/ui";
+
+@custom-variant dark (&:is(.dark *));

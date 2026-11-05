@@ -1,0 +1,6 @@
+pnpm-lock.yaml
+.cache
+node_modules
+.svelte-kit
+.wrangler
+showcase/worker-configuration.d.ts

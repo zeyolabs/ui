@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+.cache
+dist
+.svelte-kit
+.wrangler
+*.tgz
+.env
+.env.*
+.dev.vars
+showcase/worker-configuration.d.ts

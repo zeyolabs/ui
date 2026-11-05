@@ -1,0 +1,164 @@
+/* Body size reads --text-base so a storefront can set a larger base than the dense 13px
+   dashboard default. */
+/* ─── Typography tokens — shared across every app (dashboard, admin, marketing) ─────
+   Single source of truth for both font-family and the h1-h6 size/weight/line-height/
+   letter-spacing scale, so no app duplicates or drifts from another. A component's own
+   scoped <style> block (higher specificity than these unscoped tag selectors) still
+   wins for any heading that needs a bespoke size — this scale is only the default.
+   Requires the consuming app.html to load DM Sans via Google Fonts (see app.html in any
+   app) — every app on the same font-delivery pipeline, same font-family name. */
+@theme inline {
+	--font-sans:
+		'DM Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+	--font-heading: 'DM Sans', sans-serif;
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+	body {
+		font-family: var(--font-sans);
+		font-size: var(--text-base, 13px);
+		font-weight: 400;
+		letter-spacing: -0.01em;
+		line-height: 1.5;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	input,
+	textarea,
+	select,
+	button {
+		font-family: inherit;
+		letter-spacing: -0.01em;
+	}
+
+	button {
+		transition: all 0.1s;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-heading);
+	}
+
+	h4,
+	h5,
+	h6 {
+		font-weight: 600;
+	}
+
+	h1 {
+		font-size: 42px;
+		font-weight: 400;
+		line-height: 1.08;
+		letter-spacing: -2px;
+	}
+
+	h2 {
+		font-size: clamp(1.85rem, 5vw, 48px);
+		font-weight: 400;
+		line-height: 1.08;
+		letter-spacing: -2px;
+	}
+
+	h3 {
+		font-size: clamp(1.5rem, 3.6vw, 32px);
+		font-weight: 400;
+		line-height: 1.2;
+		letter-spacing: -1px;
+	}
+
+	h4 {
+		font-size: 22px;
+		line-height: 1.3;
+	}
+
+	h5 {
+		font-size: 18px;
+		line-height: 1.4;
+	}
+
+	h6 {
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	.xs {
+		font-size: 11px;
+		letter-spacing: 0.01em;
+		line-height: 1.6;
+	}
+
+	.sm {
+		font-size: 11px;
+		letter-spacing: 0;
+		line-height: 1.55;
+	}
+
+	.lg {
+		font-size: 15px;
+		line-height: 1.5;
+	}
+
+	.xl {
+		font-size: 18px;
+		line-height: 1.4;
+	}
+
+	.bold {
+		font-weight: 600;
+	}
+
+	/* Text/Span/Title's `bg` prop (classes `chip-*`, named so they cannot collide with Tailwind's own
+	   `bg-*` utilities such as `bg-white`) — a tinted chip behind a run of text (see `BG_CLASS` in
+	   text/color.ts). Shared shape across every color: a small inset so the tint reads as a chip
+	   around the text rather than a flush-edge smear, not just the tint itself. */
+	.chip-accent,
+	.chip-error,
+	.chip-info,
+	.chip-secondary,
+	.chip-success,
+	.chip-tertiary,
+	.chip-warning,
+	.chip-white,
+	.chip-whiteSecondary {
+		margin: -2px -4px;
+		padding: 2px 4px;
+		border-radius: var(--radius-xs);
+	}
+
+	.chip-accent {
+		background: color-mix(in srgb, var(--acc) 12%, transparent);
+	}
+	.chip-error {
+		background: color-mix(in srgb, var(--err) 18%, transparent);
+	}
+	.chip-info {
+		background: color-mix(in srgb, var(--inf) 12%, transparent);
+	}
+	.chip-secondary {
+		background: color-mix(in srgb, var(--txs) 12%, transparent);
+	}
+	.chip-success {
+		background: color-mix(in srgb, var(--ok) 14%, transparent);
+	}
+	.chip-tertiary {
+		background: color-mix(in srgb, var(--txt) 12%, transparent);
+	}
+	.chip-warning {
+		background: color-mix(in srgb, var(--w) 14%, transparent);
+	}
+	/* Fixed white tint, not theme-aware — pairs with `white`/`whiteSecondary` text color for a
+	   chip on a dark/gradient surface that stays the same regardless of site theme. */
+	.chip-white {
+		background: rgb(255 255 255 / 12%);
+	}
+	.chip-whiteSecondary {
+		background: rgb(255 255 255 / 8%);
+	}
+}

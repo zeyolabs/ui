@@ -1,0 +1,1393 @@
+/* Default component stylesheet (form primitives, button, tabs, select, combobox, pin, sliders,
+   date range, toast). It reads only the neutral tokens in tokens.css, so each app's brand flows
+   through. .btn.default fills with var(--primary-strong); .btn.lg is the 48px call-to-action size. */
+
+/* ─── Form primitives ──────────────────────────────────────────────────────── */
+/* Typography tokens (@theme/heading font-family) live in ./typography.css — every app
+   (dashboard, ui, admin, marketing) imports both. */
+
+.form-field {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-label {
+	display: block;
+	font-size: 11px;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+	color: var(--txs);
+	margin-bottom: 3px;
+}
+
+.form-required-star {
+	color: var(--err, #e53e3e);
+	margin-left: 2px;
+}
+
+.form-input {
+	display: block;
+	width: 100%;
+	height: var(--control-h);
+	padding: 0 12px;
+	font-family: inherit;
+	font-size: 13px;
+	color: var(--tx);
+	background: var(--bg);
+	border: 1px solid var(--bd);
+	border-radius: var(--radius-md);
+	outline: none;
+	box-sizing: border-box;
+	transition: border-color 0.12s ease;
+	/* type="search" (SearchBar.svelte) gets native OS-level search-field chrome in WebKit/Blink
+	   (the UA stylesheet's -webkit-appearance: searchfield), which ignores this rule's own
+	   background/color entirely and renders a plain light native box regardless of dark mode.
+	   Reset to the standard box appearance so the theme vars above actually apply. */
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+/* The native "clear" (x) button a type="search" input still renders even with appearance: none
+   above in WebKit — themed to match instead of left as unstyled native chrome. */
+.form-input::-webkit-search-cancel-button {
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.form-input:focus {
+	border-color: var(--tx);
+}
+
+.form-input:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.form-input::placeholder {
+	color: var(--txs);
+}
+
+/* Compact/dense variant — a filter sidebar or tight panel, not a regular form field. */
+.form-input.sm {
+	height: var(--control-h-sm);
+	padding: 0 10px;
+	font-size: 13px;
+	border-radius: var(--radius-md);
+	background: var(--sf);
+}
+
+.form-textarea {
+	height: auto;
+	padding: 8px 12px;
+	resize: none;
+	line-height: 1.4;
+}
+
+.form-textarea--resize {
+	resize: vertical;
+}
+
+.form-error {
+	display: block;
+	font-size: 11px;
+	color: var(--err, #9b3838);
+	margin-top: 1px;
+}
+
+/* Opt-in for a bottom-aligned inline row (`items-end`) of form fields — without this, one
+   field's error text grows its own column and drags its shorter siblings down with it. */
+.form-row-tight .form-field {
+	position: relative;
+}
+.form-row-tight .form-error {
+	position: absolute;
+	top: 100%;
+	left: 0;
+}
+
+/* ─── Checkbox ──────────────────────────────────────────────────────────────── */
+
+.form-checkbox-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.form-checkbox-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.form-checkbox {
+	position: relative;
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	border-radius: var(--radius-xs);
+	border: 1px solid var(--bd);
+	background: var(--bg);
+	transition:
+		border-color 0.12s ease,
+		background 0.12s ease;
+	outline: none;
+	cursor: pointer;
+}
+
+.form-checkbox:focus-visible {
+	border-color: var(--tx);
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--tx) 15%, transparent);
+}
+
+.form-checkbox[data-state='checked'],
+.form-checkbox[data-state='indeterminate'] {
+	border-color: #000;
+	background: #000;
+	color: #fff;
+}
+
+.form-checkbox[data-disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.form-checkbox[aria-invalid='true'] {
+	border-color: var(--err, #9b3838);
+}
+
+.form-checkbox-icon {
+	width: 11px;
+	height: 11px;
+}
+
+/* ─── Radio ─────────────────────────────────────────────────────────────────── */
+
+.form-radio {
+	appearance: none;
+	flex-shrink: 0;
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	border-radius: 50%;
+	border: 1px solid var(--bd);
+	background: var(--bg);
+	transition:
+		border-color 0.12s ease,
+		background 0.12s ease,
+		box-shadow 0.12s ease;
+	outline: none;
+	cursor: pointer;
+}
+
+.form-radio:focus-visible {
+	border-color: var(--tx);
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--tx) 15%, transparent);
+}
+
+.form-radio:checked {
+	border-color: #000;
+	background: #000;
+	box-shadow: inset 0 0 0 3.5px #fff;
+}
+
+.form-radio:checked:focus-visible {
+	box-shadow:
+		inset 0 0 0 3.5px #fff,
+		0 0 0 2px color-mix(in srgb, var(--tx) 15%, transparent);
+}
+
+.form-radio:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.form-checkbox-label {
+	font-size: 13px;
+	font-weight: 400;
+	cursor: pointer;
+	line-height: 1;
+	color: var(--tx);
+}
+
+.form-description {
+	display: block;
+	font-size: 11px;
+	color: var(--txs);
+}
+
+.form-description--indented,
+.form-error--indented {
+	margin-left: 24px;
+}
+
+/* ─── Switch ────────────────────────────────────────────────────────────────── */
+
+.form-switch-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.form-switch-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.form-switch-label {
+	font-size: 13px;
+	font-weight: 400;
+	cursor: pointer;
+	line-height: 1;
+	color: var(--tx);
+}
+
+.form-switch {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	width: 36px;
+	height: 20px;
+	border-radius: var(--radius-full);
+	border: none;
+	background: var(--bd);
+	cursor: pointer;
+	transition: background 0.15s ease;
+	outline: none;
+}
+
+.form-switch:focus-visible {
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--tx) 15%, transparent);
+}
+
+.form-switch[data-state='checked'] {
+	background: var(--tx);
+}
+
+.form-switch[data-disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.form-switch-thumb {
+	display: block;
+	width: 16px;
+	height: 16px;
+	border-radius: var(--radius-full);
+	background: var(--bg);
+	transform: translateX(2px);
+	transition: transform 0.15s ease;
+	pointer-events: none;
+}
+
+.form-switch[data-state='checked'] .form-switch-thumb {
+	transform: translateX(18px);
+}
+
+.form-input-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.form-input-icon {
+	pointer-events: none;
+	position: absolute;
+	left: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--txs);
+	width: 16px;
+	height: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.form-input-icon--top {
+	top: 8px;
+	transform: none;
+}
+
+.form-input--with-icon {
+	padding-left: 30px;
+}
+
+.form-input-wrapper.sm .form-input-icon {
+	width: 16px;
+	height: 16px;
+}
+
+.form-input-wrapper.sm .form-input--with-icon {
+	padding-left: 28px;
+}
+
+/* ─── Button ───────────────────────────────────────────────────────────────── */
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	height: var(--control-h);
+	padding: 0 12px;
+	font-family: inherit;
+	font-size: 13px;
+	font-weight: 400;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--bd);
+	cursor: pointer;
+	transition:
+		background 0.12s ease,
+		border-color 0.12s ease,
+		color 0.12s ease,
+		opacity 0.12s ease;
+	user-select: none;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+
+.btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+/* Size/shape modifiers — combine with a color variant, e.g. class="btn secondary sm".
+   .btn.icon must stay declared after .btn.sm/.btn.xs so its zero padding wins when
+   both are present (icon size="sm") — same-specificity rules, later one wins per property. */
+.btn.sm {
+	height: var(--control-h-sm);
+	padding: 0 10px;
+	font-size: 13px;
+	border-radius: var(--radius-md);
+}
+
+/* For a dismiss/remove control on something as short as an 11px Badge pill — .btn.sm's
+   28px footprint balloons past a ~21px chip. Not for general toolbar use (28px stays the
+   default "sm" footprint per docs/sveltekit-ui.md); reach for this only next to equally
+   small text (a Badge chip, an inline tag). */
+.btn.xs {
+	height: 20px;
+	padding: 0 10px;
+	font-size: 11px;
+}
+
+.btn.lg {
+	height: var(--control-h-lg);
+	padding: 0 22px;
+	font-size: 15px;
+}
+
+.btn.icon {
+	padding: 0;
+	aspect-ratio: 1;
+}
+
+.btn.default {
+	background: var(--primary-strong);
+	color: #fff;
+	border-color: transparent;
+}
+
+.btn.default:hover:not(:disabled) {
+	background: color-mix(in srgb, var(--primary-strong) 82%, #000);
+}
+
+.btn.secondary {
+	background: var(--bg);
+	color: var(--tx);
+	border-color: var(--bd);
+}
+
+.btn.secondary:hover:not(:disabled) {
+	background: var(--sf);
+	border-color: var(--tx);
+}
+
+.btn.destructive {
+	background: var(--bg);
+	color: var(--err, #9b3838);
+	border-color: var(--bd);
+}
+
+.btn.destructive:hover:not(:disabled) {
+	background: var(--sf);
+	border-color: var(--err, #9b3838);
+}
+
+.btn.ghost {
+	background: var(--bg);
+	color: var(--txs);
+	border-color: var(--bd);
+}
+
+.btn.ghost:hover:not(:disabled) {
+	background: var(--sf);
+	color: var(--tx);
+	border-color: var(--tx);
+}
+
+.btn.ghost-destructive {
+	background: var(--bg);
+	color: var(--err, #9b3838);
+	border-color: color-mix(in srgb, var(--err, #9b3838) 40%, var(--bd));
+}
+
+.btn.ghost-destructive:hover:not(:disabled) {
+	background: var(--sf);
+	border-color: var(--err, #9b3838);
+}
+
+.btn.link {
+	background: transparent;
+	color: var(--tx);
+	border-color: transparent;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.btn.link:hover:not(:disabled) {
+	color: var(--txs);
+}
+
+/* Decorative, animated CTA variant — originated as marketing's own brand fork, promoted here
+   so any app can reach for a conversion-focused CTA without re-forking the CSS. Distinct from
+   the flat default/secondary/etc set on purpose: for a handful of high-stakes CTAs
+   (pricing, waitlist signup), not general-purpose buttons. */
+.btn.shiny {
+	position: relative;
+	overflow: hidden;
+	flex-shrink: 0;
+	height: 40px;
+	padding: 0 24px;
+	border: none;
+	color: #fff;
+	font-family: var(--font-sans);
+	font-size: 13px;
+	font-weight: 400;
+	letter-spacing: -0.005em;
+	background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899, #f59e0b, #06b6d4, #6366f1);
+	background-size: 300% 300%;
+	animation: shiny-shift 5s ease infinite;
+	transition: opacity 0.15s ease;
+}
+@keyframes shiny-shift {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.btn.shiny:hover:not(:disabled) {
+	opacity: 0.9;
+	color: #fff;
+}
+
+.btn.shiny::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+	background-size: 150px 150px;
+}
+
+/* ─── File field ───────────────────────────────────────────────────────────── */
+
+.form-file-input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.form-file-button-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.form-file-button-icon {
+	width: 14px;
+	height: 14px;
+}
+
+.form-file-name {
+	font-size: 13px;
+	color: var(--txs);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.form-file-dropzone {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 20px 16px;
+	background: var(--bg);
+	border: 2px dashed var(--txs);
+	border-radius: var(--radius);
+	cursor: pointer;
+	outline: none;
+	transition:
+		border-color 0.12s ease,
+		background 0.12s ease;
+}
+
+.form-file-dropzone:hover,
+.form-file-dropzone:focus-visible {
+	border-color: var(--tx);
+}
+
+.form-file-dropzone--over {
+	border-color: var(--tx);
+	background: var(--sf);
+}
+
+.form-file-dropzone--disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+.form-file-dropzone-icon {
+	width: 22px;
+	height: 22px;
+	color: var(--txs);
+}
+
+.form-file-dropzone-text {
+	font-size: 13px;
+	color: var(--txs);
+}
+
+/* ─── Tab ────────────────────────────────────────────────────────────────────── */
+
+.tab {
+	width: fit-content;
+	display: grid;
+	gap: 0;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
+	padding: 0;
+	font-size: 13px;
+	font-weight: 400;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid var(--bd);
+	border-radius: 0;
+	cursor: pointer;
+}
+
+.tab--vertical {
+	grid-auto-flow: row;
+	grid-auto-rows: 1fr;
+	border-bottom: none;
+	border-right: 1px solid var(--bd);
+}
+
+.tab--disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+.tab--readonly {
+	pointer-events: none;
+}
+
+.tab--invalid {
+	border-color: var(--err);
+}
+
+.tab-btn {
+	display: block;
+	padding: 8px 0.75rem;
+	cursor: pointer;
+	border: none;
+	border-bottom: 2px solid transparent;
+	border-radius: 0;
+	background: transparent;
+	color: var(--txs);
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: 1;
+	margin-bottom: -1px;
+	transition:
+		color 0.12s ease,
+		border-color 0.12s ease;
+}
+
+.tab-btn:hover {
+	color: var(--tx);
+}
+
+.tab-btn:focus-visible {
+	outline: 2px solid var(--tx);
+	outline-offset: -2px;
+}
+
+.tab-btn[data-state='active'] {
+	background: transparent;
+	color: var(--tx);
+	border-bottom-color: var(--tx);
+}
+
+.tab-btn--custom {
+	height: auto;
+	padding: 0.25rem;
+}
+
+/* ─── Select (form-select) ─────────────────────────────────────────────────── */
+
+/* The trigger is a bits-ui <button>, not a native <select>: lay its content out
+   as [icon] [value …grows] [chevron] and keep the .form-input box styling. */
+.form-select {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding-right: 10px;
+	text-align: left;
+	cursor: pointer;
+}
+
+.form-select-value {
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.form-select--placeholder .form-select-value {
+	color: var(--txs);
+}
+
+.form-select-chevron {
+	flex: none;
+	pointer-events: none;
+	color: var(--txs);
+	transition: transform 0.12s ease;
+}
+
+.form-select[data-state='open'] .form-select-chevron {
+	transform: rotate(180deg);
+}
+
+/* Custom dropdown panel (replaces the OS-rendered <option> list). Portaled to <body> (bits-ui's
+   Select.Portal default), so it's a sibling of Dialog's backdrop (z-index 9999, see
+   dialog/DialogBody.svelte) in the same stacking context — must stay above it or the menu opens
+   invisibly behind the backdrop's blur when a SelectField is used inside a Dialog. */
+.form-select-menu {
+	z-index: 10000;
+	width: var(--bits-combobox-anchor-width, var(--bits-select-anchor-width));
+	max-height: min(
+		300px,
+		var(--bits-combobox-content-available-height, var(--bits-select-content-available-height))
+	);
+	overflow-y: auto;
+	padding: 4px;
+	background: var(--bg);
+	border: 1px solid var(--bd);
+	border-radius: var(--radius);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+}
+
+.form-select-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	height: 30px;
+	padding: 0 8px;
+	font-size: 13px;
+	color: var(--tx);
+	border-radius: var(--radius);
+	cursor: pointer;
+	outline: none;
+	user-select: none;
+}
+
+.form-select-item-label {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.form-select-group-heading {
+	padding: 6px 8px 2px;
+	font-size: 11px;
+	font-weight: 400;
+	color: var(--txs);
+}
+
+.form-select-empty {
+	padding: 8px;
+	font-size: 13px;
+	color: var(--txs);
+}
+
+/* ─── Combobox ──────────────────────────────────────────────────────────────── */
+/* Extends the .form-select/.form-select-menu/.form-select-item tokens above — a Combobox is a
+   searchable, optionally-multi-select Select, so it inherits that look rather than forking it. */
+
+.form-combobox-multi {
+	height: auto;
+	min-height: var(--control-h);
+	align-items: flex-start;
+}
+
+.form-combobox-multi .form-select-chevron {
+	margin-top: 11px;
+}
+
+/* The search box lives at the top of the panel, above the (scrollable) option list. */
+.form-combobox-search {
+	display: flex;
+	flex: none;
+	align-items: center;
+	gap: 8px;
+	padding: 0 10px;
+	height: 36px;
+	border-bottom: 1px solid var(--bds);
+	color: var(--txs);
+}
+
+.form-combobox-search-input {
+	flex: 1 1 auto;
+	min-width: 0;
+	height: 100%;
+	padding: 0;
+	background: transparent;
+	border: none;
+	outline: none !important;
+	font: inherit;
+	font-size: 13px;
+	color: var(--tx);
+}
+
+.form-combobox-search-input::placeholder {
+	color: var(--txs);
+}
+
+.form-combobox-chips {
+	display: flex;
+	flex: 1 1 auto;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 5px;
+	min-width: 0;
+	padding: 5px 0;
+}
+
+.form-combobox-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 2px 4px 2px 8px;
+	font-size: 11px;
+	font-weight: 400;
+	color: var(--tx);
+	background: var(--sf);
+	border: 1px solid var(--bd);
+	border-radius: var(--radius-full);
+	white-space: nowrap;
+}
+
+.form-combobox-chip-remove {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px;
+	color: var(--txs);
+	background: transparent;
+	border: none;
+	border-radius: var(--radius-full);
+	cursor: pointer;
+}
+
+.form-combobox-chip-remove:hover {
+	color: var(--tx);
+}
+
+.form-combobox-menu {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	overflow: hidden;
+}
+
+.form-combobox-list {
+	flex: 1 1 auto;
+	min-height: 0;
+	overflow-y: auto;
+	padding: 4px;
+}
+
+.form-combobox-header {
+	padding: 8px;
+	font-size: 11px;
+	color: var(--txs);
+	border-bottom: 1px solid var(--bds);
+}
+
+.form-combobox-footer {
+	padding: 4px;
+	border-top: 1px solid var(--bds);
+}
+
+.form-combobox-action {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	padding: 6px 8px;
+	background: transparent;
+	border: none;
+	border-radius: var(--radius);
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: 400;
+	color: var(--txs);
+	text-align: left;
+}
+
+.form-combobox-action:hover {
+	color: var(--tx);
+}
+
+.form-combobox-action:focus-visible {
+	outline: none;
+	background: var(--sf);
+}
+
+.form-select-item-check {
+	flex: none;
+	color: var(--tx);
+}
+
+/* bits-ui marks the keyboard/pointer-highlighted item via data-highlighted. */
+.form-select-item[data-highlighted] {
+	background: var(--sf);
+}
+
+.form-select-item[data-disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* ─── Pin ──────────────────────────────────────────────────────────────────── */
+
+.form-pin {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.form-pin-group {
+	display: flex;
+	gap: 6px;
+}
+
+.form-pin-cell {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	font-family: inherit;
+	font-size: 15px;
+	color: var(--tx);
+	background: var(--bg);
+	border: 1px solid var(--bd);
+	border-radius: var(--radius);
+	outline: none;
+	box-sizing: border-box;
+	transition: border-color 0.12s ease;
+}
+
+.form-pin-cell[data-active] {
+	border-color: var(--tx);
+}
+
+.form-pin-cell[data-disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.form-pin-separator {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--txs);
+}
+
+.form-pin-separator-icon {
+	width: 12px;
+	height: 12px;
+}
+
+.form-pin-caret {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+}
+
+.form-pin-caret-line {
+	width: 1px;
+	height: 16px;
+	background: var(--tx);
+	animation: pinCaretBlink 1s steps(1) infinite;
+}
+
+@keyframes pinCaretBlink {
+	0%,
+	50% {
+		opacity: 1;
+	}
+
+	51%,
+	100% {
+		opacity: 0;
+	}
+}
+
+/* ─── OnOff (switch variation) ─────────────────────────────────────────────────── */
+
+.form-onoff {
+	position: relative;
+	display: inline-block;
+	flex-shrink: 0;
+	width: 60px;
+	height: 22px;
+	border: none;
+	border-radius: var(--radius-full);
+	background: var(--bd);
+	cursor: pointer;
+	transition: background 0.15s ease;
+	outline: none;
+}
+
+.form-onoff[data-state='checked'] {
+	background: var(--tx);
+}
+
+.form-onoff[data-disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.form-onoff:focus-visible {
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--tx) 15%, transparent);
+}
+
+.form-onoff-text {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 11px;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+	pointer-events: none;
+	transition: opacity 0.15s ease;
+}
+
+.form-onoff-text--on {
+	left: 2px;
+	color: var(--bg);
+	opacity: 0;
+}
+
+.form-onoff-text--off {
+	right: 2px;
+	color: var(--tx);
+	opacity: 1;
+}
+
+.form-onoff[data-state='checked'] .form-onoff-text--on {
+	opacity: 1;
+}
+
+.form-onoff[data-state='checked'] .form-onoff-text--off {
+	opacity: 0;
+}
+
+.form-onoff-thumb {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 28px;
+	height: 18px;
+	border-radius: var(--radius-full);
+	background: var(--bg);
+	transition: transform 0.15s ease;
+	pointer-events: none;
+}
+
+.form-onoff[data-state='checked'] .form-onoff-thumb {
+	transform: translateX(28px);
+}
+
+/* ─── Slider / Range ──────────────────────────────────────────────────────────── */
+
+.form-slider-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.form-slider-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.form-slider-label {
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1;
+	color: var(--tx);
+}
+
+.form-slider-value {
+	font-size: 13px;
+	font-weight: 400;
+	font-variant-numeric: tabular-nums;
+	color: var(--tx);
+}
+
+.form-slider {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 20px;
+	touch-action: none;
+	user-select: none;
+}
+
+.form-slider[data-disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.form-slider-track {
+	position: relative;
+	width: 100%;
+	height: 4px;
+	background: var(--bd);
+}
+
+.form-slider-range {
+	position: absolute;
+	height: 100%;
+	background: var(--tx);
+}
+
+.form-slider-thumb {
+	display: block;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: var(--tx);
+	cursor: grab;
+	outline: none;
+}
+
+.form-slider-thumb:focus-visible {
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--tx) 15%, transparent);
+}
+
+.form-slider-thumb:active {
+	cursor: grabbing;
+}
+
+/* ─── Date range ──────────────────────────────────────────────────────────────── */
+
+/* Popover panel hosting the range calendar. */
+.form-daterange-menu {
+	z-index: 60;
+	width: 288px;
+	padding: 16px;
+	background: var(--bg);
+	border: 1px solid var(--bd);
+	border-radius: var(--radius);
+	box-shadow: 0 8px 28px rgb(0 0 0 / 14%);
+	box-sizing: border-box;
+}
+
+.form-daterange-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 14px;
+}
+
+.form-daterange-heading {
+	flex: 1;
+	font-size: 13px;
+	font-weight: 400;
+	color: var(--tx);
+	text-align: center;
+}
+
+.form-daterange-nav {
+	display: flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	color: var(--txs);
+	background: transparent;
+	border: none;
+	border-radius: var(--radius);
+	cursor: pointer;
+	transition:
+		background 0.12s ease,
+		color 0.12s ease;
+}
+
+.form-daterange-nav:hover {
+	color: var(--tx);
+	background: var(--sf);
+}
+
+.form-daterange-nav:disabled {
+	opacity: 0.35;
+	cursor: not-allowed;
+}
+
+.form-daterange-grid {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 2px;
+	table-layout: fixed;
+}
+
+.form-daterange-headcell {
+	padding: 0 0 6px;
+	font-size: 11px;
+	font-weight: 400;
+	color: var(--txs);
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.form-daterange-cell {
+	padding: 0;
+	text-align: center;
+}
+
+/* Range endpoints and the highlighted span between them are driven by bits-ui's
+   data-range-start/-end/-middle attributes on this element. */
+.form-daterange-day {
+	display: flex;
+	width: 100%;
+	aspect-ratio: 1;
+	align-items: center;
+	justify-content: center;
+	font-size: 13px;
+	font-variant-numeric: tabular-nums;
+	color: var(--tx);
+	background: transparent;
+	border-radius: var(--radius);
+	cursor: pointer;
+	transition: background 0.12s ease;
+}
+
+.form-daterange-day:hover {
+	background: var(--sf);
+}
+
+.form-daterange-day[data-today] {
+	font-weight: 400;
+	box-shadow: inset 0 0 0 1px var(--bd);
+}
+
+.form-daterange-day[data-outside-month] {
+	color: var(--txs);
+	opacity: 0.4;
+}
+
+.form-daterange-day[data-disabled],
+.form-daterange-day[data-unavailable] {
+	cursor: not-allowed;
+	opacity: 0.3;
+}
+
+.form-daterange-day[data-range-middle] {
+	background: var(--sf);
+}
+
+.form-daterange-day[data-range-start],
+.form-daterange-day[data-range-end] {
+	color: var(--bg);
+	background: var(--tx);
+	font-weight: 400;
+	box-shadow: none;
+}
+
+.form-daterange-day[data-focused] {
+	outline: 2px solid var(--tx);
+	outline-offset: -2px;
+}
+
+/* ─── Toast (svelte-sonner) ───────────────────────────────────────────────────── */
+
+/* Sonner toast styling to match the app's design tokens. We override the
+   library's defaults rather than using `richColors` so light/dark mode
+   theming flows from `--bg/--tx/--bd/--acc` like the rest of the UI.
+   Right-padding (40px) reserves space for the close button so it never
+   overlaps the title — sonner's default lays the close button on top of
+   the content area, which clipped our title text. */
+.toast {
+	background: var(--bg) !important;
+	color: var(--tx) !important;
+	border: 1px solid var(--bd) !important;
+	border-radius: var(--radius-lg) !important;
+	box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08) !important;
+	font-family: inherit !important;
+	padding: 12px 40px 14px 14px !important;
+	overflow: hidden !important;
+}
+
+.toast-title {
+	font-size: 13px !important;
+	font-weight: 400 !important;
+	color: var(--tx) !important;
+	letter-spacing: -0.005em !important;
+}
+
+.toast-desc {
+	font-size: 13px !important;
+	color: var(--txs) !important;
+	margin-top: 2px !important;
+	line-height: 1.4 !important;
+}
+
+/* Move close button from sonner's default top-left to top-right and
+   make it always visible (sonner hides it until hover by default).
+   Anchored inside the toast's reserved right-padding so it never sits
+   under the title text. */
+.toast-close,
+.toast [data-close-button] {
+	position: absolute !important;
+	top: calc(50% - 1px) !important;
+	right: 8px !important;
+	left: auto !important;
+	bottom: auto !important;
+	transform: translateY(-50%) !important;
+	opacity: 1 !important;
+	background: transparent !important;
+	border: none !important;
+	color: var(--txs) !important;
+	border-radius: var(--radius-sm) !important;
+	width: 18px !important;
+	height: 18px !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	padding: 0 !important;
+}
+
+.toast-close:hover,
+.toast [data-close-button]:hover {
+	background: transparent !important;
+	color: var(--tx) !important;
+}
+
+.toast-close svg,
+.toast [data-close-button] svg {
+	width: 10px !important;
+	height: 10px !important;
+}
+
+/* Countdown line along the bottom edge: it runs out over the toast's lifetime (--toast-duration,
+   matching the <Toaster> duration) and pauses while the pointer is over the toast. Its colour is
+   the toast's type. */
+.toast::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 2px;
+	background: var(--tx);
+	transform-origin: left;
+	animation: toast-countdown var(--toast-duration, 5s) linear forwards;
+}
+
+.toast:hover::after {
+	animation-play-state: paused;
+}
+
+.toast-success::after {
+	background: var(--ok);
+}
+
+.toast-error::after {
+	background: var(--err);
+}
+
+.toast-warning::after {
+	background: #d97706;
+}
+
+.toast-info::after {
+	background: var(--acc);
+}
+
+@keyframes toast-countdown {
+	to {
+		transform: scaleX(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.toast::after {
+		animation: none;
+		display: none;
+	}
+}
+
+/* No status glyph (check/x/warning/info icon) — the countdown line's colour already signals
+   type; an icon on top of it would read as redundant. */
+.toast [data-icon] {
+	display: none !important;
+}
+
+.toast-loader {
+	border-color: var(--bd) !important;
+	border-top-color: var(--tx) !important;
+}

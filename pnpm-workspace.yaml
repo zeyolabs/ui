@@ -1,0 +1,11 @@
+packages:
+  - showcase
+
+allowBuilds:
+  core-js-pure: true
+  esbuild: true
+  sharp: true
+  workerd: true
+
+minimumReleaseAgeExclude:
+  - '@zeyolabs/kit@2026.11.5'

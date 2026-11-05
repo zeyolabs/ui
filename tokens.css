@@ -1,0 +1,62 @@
+/* Design tokens: neutral defaults. Each app overrides them with its own brand in its
+   app.css / brand.css. The component stylesheet (template.css) reads these. */
+:root {
+	--bg: #ffffff;
+	/* The page behind cards/surfaces (which use --bg), where an app opts into a tinted page. */
+	--bg-page: #f6f6f6;
+	--sf: #ffffff;
+	--sfh: #f6f6f6;
+	--bd: #e8e6e3;
+	--bds: #f0f0f0;
+	--tx: #1e1d26;
+	--txs: #6b7280;
+	--txt: #9ca3af;
+	--ok: #2f6e3d;
+	--w: #b45309;
+	--err: #9b3838;
+	--inf: #1e1d26;
+	--ov: rgba(30, 29, 38, 0.18);
+	--ch: rgba(30, 29, 38, 0.015);
+	--acc: #1e1d26;
+	--tertiary: #faf7f0;
+
+	/* The one accent: buttons, links, focus. --primary-strong must keep AA contrast as a
+	   white-text fill and as text on --bg. */
+	--primary: #2563eb;
+	--primary-strong: #1d4ed8;
+	--primary-soft: #dbeafe;
+
+	/* Plain-language aliases used by app markup; they follow the tokens above. */
+	--fg: var(--tx);
+	--muted: var(--txs);
+	--border: var(--bd);
+	--danger: var(--err);
+
+	/* Control heights: buttons, inputs, selects and comboboxes share these so a field and the
+	   button beside it line up. */
+	--control-h: 35px;
+	--control-h-sm: 28px;
+	--control-h-lg: 48px;
+
+	--font-sans: ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark {
+	--bg: #0a0a0a;
+	--bg-page: #141414;
+	--sf: #141414;
+	--sfh: #1c1c1c;
+	--bd: #282828;
+	--bds: #1c1c1c;
+	--tx: #ffffff;
+	--txs: #aaaaaa;
+	--txt: #666666;
+	--ok: #22c55e;
+	--w: #eab308;
+	--err: #ef4444;
+	--inf: #3b82f6;
+	--ov: rgba(0, 0, 0, 0.5);
+	--ch: rgba(255, 255, 255, 0.02);
+	--acc: #ffffff;
+	--tertiary: #161311;
+}

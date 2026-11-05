@@ -1,0 +1,32 @@
+/* Spacing scale, shared across every app: named steps on top of Tailwind v4's dynamic
+   --spacing multiplier, for the layout components' gap/spacing/padding props and Card's
+   padding prop, reached for before a new one-off arbitrary value (gap-3.5, px-4.5, etc).
+
+   Deliberately plain CSS custom properties, not a Tailwind @theme block: Tailwind's own
+   max-w-* / max-h-* utilities resolve named sizes (xs/sm/md/lg/xl/2xl/etc) through this
+   exact --spacing-* namespace ahead of their own --container-* scale whenever a matching
+   key exists. Registering these under @theme silently shrank every max-w-md (etc) in the
+   app to this scale's tiny values instead of Tailwind's real ~448px default. Plain :root
+   custom properties are still fully readable via var(--spacing-md) everywhere, including
+   inside @theme-registered component CSS, they just do not participate in Tailwind's own
+   utility generation/resolution. Do not move this back into @theme without re-checking
+   that collision. */
+:root {
+	--spacing-xs: calc(var(--spacing) * 2); /* 8px */
+	--spacing-sm: calc(var(--spacing) * 3); /* 12px */
+	--spacing-md: calc(var(--spacing) * 5); /* 20px */
+	--spacing-lg: calc(var(--spacing) * 8); /* 32px */
+	--spacing-xl: calc(var(--spacing) * 12); /* 48px */
+	/* Section-band tier — page-level bands (a colored full-bleed section's own vertical
+	   padding) need a bigger range than component-internal gaps ever do. */
+	--spacing-2xl: calc(var(--spacing) * 16); /* 64px */
+	--spacing-3xl: calc(var(--spacing) * 24); /* 96px */
+	--spacing-4xl: calc(var(--spacing) * 32); /* 128px */
+}
+
+/* Sidebar width — the fixed sidebar and every app's matching margin-left read these.
+   v2-parity: v2 measures 240px expanded / ~58px collapsed (was 256px / 56px). */
+:root {
+	--sidebar-width-expanded: 15rem; /* 240px */
+	--sidebar-width-collapsed: 3.625rem; /* 58px */
+}
