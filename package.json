@@ -24,8 +24,7 @@
 		"ci": "pnpm check && pnpm showcase:build",
 		"showcase:dev": "pnpm --filter showcase dev",
 		"showcase:build": "pnpm --filter showcase build",
-		"showcase:deploy": "pnpm --filter showcase cf-deploy",
-		"release": "node scripts/release.mjs"
+		"showcase:deploy": "pnpm --filter showcase cf-deploy"
 	},
 	"files": [
 		"account",

@@ -13,5 +13,5 @@
 - Async Svelte: components may `await` in markup; `svelte.config.js` at the root exists only so
   svelte-check and editors compile them with `experimental.async`.
 - Dependency versions are exact; `svelte`, `@sveltejs/kit` and `@zeyolabs/kit` are peers.
-- Releases are date versions via `pnpm release` (see README). Run `pnpm check` and
-  `pnpm showcase:build` before releasing.
+- Merging to `main` publishes a new `YYYY.M.N` version automatically (see README). Never tag or
+  publish by hand.
