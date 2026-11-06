@@ -1,6 +1,6 @@
 {
 	"name": "@zeyolabs/ui",
-	"version": "2026.11.6",
+	"version": "2026.1106.0",
 	"description": "Shared Svelte 5 components, form fields and design tokens for SvelteKit 3 apps.",
 	"type": "module",
 	"license": "UNLICENSED",
