@@ -8,7 +8,7 @@
 		revokeInviteCmd,
 		setMemberPolicyCmd,
 	} from '@zeyolabs/kit/auth/accounts/accounts.remote';
-	import { InviteSchema } from '@zeyolabs/kit/auth/accounts/schemas';
+	import { AccountSchemas } from '@zeyolabs/kit/auth/accounts/schemas';
 	import { toast } from 'svelte-sonner';
 
 	import Badge from '../badge/Badge.svelte';
@@ -117,7 +117,7 @@
 		{/if}
 
 		{#if data.can.invite}
-			<Form class="account-invite" form={inviteMemberForm} schema={InviteSchema}>
+			<Form class="account-invite" form={inviteMemberForm} schema={AccountSchemas.Invite}>
 				<EmailField name="email" form={inviteMemberForm} placeholder="name@example.com">
 					Invite by email
 				</EmailField>
