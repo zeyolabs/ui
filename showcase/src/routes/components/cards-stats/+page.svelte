@@ -186,13 +186,13 @@
   {/snippet}
 </Stat>
 
-<!-- numerals="plain" drops the DM Sans display face for the body sans -->
+<!-- numerals="plain" drops the heading face (--font-heading) for the body face (--font-sans) -->
 <Stat numerals="plain">
   {#snippet label()}Open rate{/snippet}
   {#snippet value()}38.4%{/snippet}
   {#snippet sub()}18,504 opens{/snippet}
 </Stat>`}
-	description="A Card preset for a single number — label / value / optional sub, all snippets so a label can hold an icon or richer markup. delta adds an up/down/neutral change badge (owns its own color coding); chart is any small visual under the value, a sparkline typically. The plain numerals variant swaps the DM Sans display face for the body sans at a slightly smaller size, for dense metric grids."
+	description="A Card preset for a single number — label / value / optional sub, all snippets so a label can hold an icon or richer markup. delta adds an up/down/neutral change badge (owns its own color coding); chart is any small visual under the value, a sparkline typically. The plain numerals variant swaps the heading face (--font-heading) for the body face (--font-sans) at a slightly smaller size, for dense metric grids."
 	title="Stat"
 >
 	<div style="width: 100%;">

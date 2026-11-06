@@ -35,7 +35,7 @@
 		maxWidth?: string;
 		/** Single-line ellipsis. Needs a bounded width from context (a flex child needs its own
 		 * `min-width: 0`/`flex: 1` via `class`, or pass `maxWidth`). Clips only the inline axis —
-		 * unlike Tailwind's `truncate`, the vertical axis stays `visible` so descenders (DM Sans's
+		 * unlike Tailwind's `truncate`, the vertical axis stays `visible` so descenders (the font's
 		 * glyph box is taller than the tight h1/h2 line-height) don't get cropped by the clip box. */
 		truncate?: boolean;
 	} = $props();
