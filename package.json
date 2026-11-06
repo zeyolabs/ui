@@ -132,7 +132,7 @@
 		"./theme/*": "./theme/*"
 	},
 	"peerDependencies": {
-		"@zeyolabs/kit": ">=2026.11.5",
+		"@zeyolabs/kit": ">=2026.11.6",
 		"@sveltejs/kit": "^3.1.1",
 		"svelte": "^5.57.3"
 	},
