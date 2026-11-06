@@ -32,7 +32,7 @@
 
 <ShowcaseSection
 	code={headings.map((h) => `<Title level={${h.level}}>The quick brown fox</Title>`).join('\n')}
-	description="Font family: DM Sans (--font-heading). Size / weight / letter-spacing noted per level. level picks both the tag AND the size — there's no separate size prop, so a custom font-size can never drift from its matching letter-spacing/line-height."
+	description="Font family: --font-heading. Size / weight / letter-spacing noted per level. level picks both the tag AND the size — there's no separate size prop, so a custom font-size can never drift from its matching letter-spacing/line-height."
 	title="Heading scale"
 >
 	<div class="text-reset">
@@ -164,7 +164,7 @@
 	code={`font-family: var(--font-sans);   /* body */
 font-family: var(--font-heading); /* h1-h6 */
 font-family: var(--font-mono);    /* code, tabular data */`}
-	description="Three font-family tokens, all DM Sans except the monospace stack."
+	description="Three font-family tokens, set once in typography.css: body, headings, and code."
 	title="Font families"
 >
 	<Stack gap="sm">

@@ -22,9 +22,9 @@
 		label: Snippet;
 		/** Loading ring on the card while its value reloads; drive it from `pendingFlag()`. */
 		loading?: boolean;
-		/** Type treatment for the value. `display` (default) is the DM Sans heading face; `plain`
-		 * keeps the body sans at a slightly smaller size, for dense metric grids where a row of
-		 * display numerals reads too loud. */
+		/** Type treatment for the value. `display` (default) uses `--font-heading`; `plain` keeps
+		 * `--font-sans` at a slightly smaller size, for dense metric grids where a row of display
+		 * numerals reads too loud. */
 		numerals?: 'display' | 'plain';
 		sub?: Snippet;
 		value: Snippet;
