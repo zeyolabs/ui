@@ -87,7 +87,7 @@ type LocalOpts<T> = {
 };
 
 /**
- * Text-like standalone view (text/number/date/time/email/password/etc.).
+ * Text-like standalone view (text/number/date/time/email/etc.).
  * Builds its own `oninput`/`onchange` since `as()` does not provide them.
  */
 export function createLocalTextView<T>(opts: LocalOpts<T>): FieldView {

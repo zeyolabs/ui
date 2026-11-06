@@ -10,7 +10,6 @@ export { default as IntervalField } from './IntervalField.svelte';
 export { default as MessageField } from './MessageField.svelte';
 export { default as NumberField } from './NumberField.svelte';
 export { default as Option } from './Option.svelte';
-export { default as PasswordField } from './PasswordField.svelte';
 export { default as RadioField } from './RadioField.svelte';
 export { default as SelectField } from './SelectField.svelte';
 export { default as SliderField } from './SliderField.svelte';

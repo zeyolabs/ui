@@ -28,6 +28,7 @@
 		"release": "node scripts/release.mjs"
 	},
 	"files": [
+		"account",
 		"back-button",
 		"badge",
 		"bar",
@@ -85,6 +86,7 @@
 		"./percentage-ring/*": "./percentage-ring/*",
 		"./status-row/types": "./status-row/types.ts",
 		"./status-row/*": "./status-row/*",
+		"./account/*": "./account/*",
 		"./boundary/pending-context": "./boundary/pending-context.ts",
 		"./boundary/pending-flag": "./boundary/pending-flag.svelte.ts",
 		"./boundary/*": "./boundary/*",
