@@ -1,35 +1,42 @@
 <script lang="ts">
+	import type { Component } from 'svelte';
+
 	import { page } from '$app/state';
 
-	let { href, label }: { href: string; label: string } = $props();
+	let {
+		href,
+		icon: Icon,
+		label,
+	}: { href: string; icon?: Component<{ size?: number }>; label: string } = $props();
 
 	const active = $derived(page.url.pathname === href);
 </script>
 
-<a class="nav-link" class:active {href}>
-	{label}
-</a>
+<li>
+	<a class="item" aria-current={active ? 'page' : undefined} {href}>
+		{#if Icon}<Icon size={14} />{/if}
+		{label}
+	</a>
+</li>
 
 <style>
-	.nav-link {
-		display: block;
-		padding: var(--spacing-xs) var(--spacing-sm);
-		font-size: 12.5px;
-		font-weight: 500;
+	.item {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		height: 26px;
+		padding: 0 8px;
+		border-radius: var(--radius-sm);
 		color: var(--txs);
 		text-decoration: none;
-		border-radius: var(--radius-xs);
-		transition:
-			background 0.12s ease,
-			color 0.12s ease;
 	}
-	.nav-link:hover {
+	.item:hover {
+		background: var(--sfh);
 		color: var(--tx);
-		background: var(--sf);
 	}
-	.nav-link.active {
-		color: var(--tx);
-		background: var(--sf);
-		font-weight: 600;
+	.item[aria-current='page'] {
+		background: color-mix(in srgb, var(--primary) 16%, transparent);
+		color: var(--primary);
+		font-weight: 500;
 	}
 </style>
