@@ -16,6 +16,7 @@
 		color,
 		level,
 		maxWidth,
+		tag: tagProp,
 		truncate = false,
 	}: {
 		/** Tinted chip background behind the text (e.g. flagging one invalid cell/value without
@@ -33,6 +34,9 @@
 		color?: Color;
 		level: Level;
 		maxWidth?: string;
+		/** Element to render, independent of `level` (which sets the size). Defaults to `h{level}`.
+		 * Use it to keep a real `h1` for the page title while styling it at a smaller level. */
+		tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 		/** Single-line ellipsis. Needs a bounded width from context (a flex child needs its own
 		 * `min-width: 0`/`flex: 1` via `class`, or pass `maxWidth`). Clips only the inline axis —
 		 * unlike Tailwind's `truncate`, the vertical axis stays `visible` so descenders (the font's
@@ -40,7 +44,7 @@
 		truncate?: boolean;
 	} = $props();
 
-	const tag = $derived(`h${level}` as const);
+	const tag = $derived(tagProp ?? (`h${level}` as const));
 	const inlineStyle = $derived(
 		`${maxWidth ? `max-width:${maxWidth};` : ''}${clamp ? `display:-webkit-box;-webkit-line-clamp:${clamp};line-clamp:${clamp};-webkit-box-orient:vertical;overflow:hidden;` : ''}`
 	);
@@ -49,9 +53,9 @@
 <svelte:element
 	this={tag}
 	style={inlineStyle}
-	class="{bold ? 'bold' : ''} {centered ? 'text-center' : ''} {color ? COLOR_CLASS[color] : ''} {bg
-		? BG_CLASS[bg]
-		: ''} {className}"
+	class="title-{level} {bold ? 'bold' : ''} {centered ? 'text-center' : ''} {color
+		? COLOR_CLASS[color]
+		: ''} {bg ? BG_CLASS[bg] : ''} {className}"
 	class:center-below={centerBelow}
 	class:truncate-title={truncate}
 >
