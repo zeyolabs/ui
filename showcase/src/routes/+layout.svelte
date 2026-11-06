@@ -2,9 +2,30 @@
 	import type { Snippet } from 'svelte';
 
 	import { resolve } from '$app/paths';
-	import { Moon, Sun } from '@lucide/svelte';
-	import { Button } from '@zeyolabs/ui/form';
-	import Span from '@zeyolabs/ui/text/Span.svelte';
+	import {
+		BookOpen,
+		Combine,
+		Gauge,
+		Grid2x2,
+		Layers,
+		LayoutGrid,
+		Mail,
+		MessageSquare,
+		Moon,
+		MousePointerClick,
+		Palette,
+		PanelsTopLeft,
+		Sun,
+		Table,
+		Tag,
+		TextCursorInput,
+		Type,
+	} from '@lucide/svelte';
+	import SplitShell from '@zeyolabs/ui/layout/SplitShell.svelte';
+	import Sidebar from '@zeyolabs/ui/sidebar/Sidebar.svelte';
+	import SidebarBrand from '@zeyolabs/ui/sidebar/SidebarBrand.svelte';
+	import SidebarButton from '@zeyolabs/ui/sidebar/SidebarButton.svelte';
+	import SidebarGroup from '@zeyolabs/ui/sidebar/SidebarGroup.svelte';
 	import { theme } from '@zeyolabs/ui/theme/theme.svelte';
 	import { Toaster } from 'svelte-sonner';
 
@@ -15,141 +36,72 @@
 	let { children }: { children: Snippet } = $props();
 </script>
 
-<div class="shell">
-	<aside class="sidebar">
-		<a class="wordmark" href={resolve('/')}>
-			<span class="wordmark-dot"></span>
-			Zeyo UI
-		</a>
+<div class="h-dvh [&>*]:h-full">
+	<SplitShell sidebarWidth={232}>
+		{#snippet sidebar()}
+			<Sidebar>
+				{#snippet brand()}
+					<SidebarBrand href={resolve('/')} label="Zeyo UI" mark="z" />
+				{/snippet}
 
-		<nav>
-			<Span class="nav-group-label" bold color="tertiary">Foundations</Span>
-			<NavLink href={resolve('foundations/colors')} label="Colors" />
-			<NavLink href={resolve('foundations/typography')} label="Typography" />
-			<NavLink href={resolve('foundations/layout')} label="Layout" />
+				<SidebarGroup label="Foundations">
+					<NavLink href={resolve('/foundations/colors')} icon={Palette} label="Colors" />
+					<NavLink href={resolve('/foundations/typography')} icon={Type} label="Typography" />
+					<NavLink href={resolve('/foundations/layout')} icon={Grid2x2} label="Layout" />
+				</SidebarGroup>
 
-			<Span class="nav-group-label" bold color="tertiary">Components</Span>
-			<NavLink href={resolve('components')} label="Overview" />
-			<NavLink href={resolve('components/buttons')} label="Buttons" />
-			<NavLink href={resolve('components/badges-status')} label="Badges & status" />
-			<NavLink href={resolve('components/cards-stats')} label="Cards & data" />
-			<NavLink href={resolve('components/tables')} label="Tables" />
-			<NavLink href={resolve('components/overlays')} label="Overlays & tabs" />
-			<NavLink href={resolve('components/feedback')} label="Feedback" />
-			<NavLink href={resolve('components/forms')} label="Forms" />
-			<NavLink href={resolve('components/combobox')} label="Combobox" />
-			<NavLink href={resolve('components/emails')} label="Emails" />
+				<SidebarGroup label="Components">
+					<NavLink href={resolve('/components')} icon={LayoutGrid} label="Overview" />
+					<NavLink href={resolve('/components/buttons')} icon={MousePointerClick} label="Buttons" />
+					<NavLink href={resolve('/components/badges-status')} icon={Tag} label="Badges & status" />
+					<NavLink href={resolve('/components/cards-stats')} icon={Gauge} label="Cards & data" />
+					<NavLink href={resolve('/components/tables')} icon={Table} label="Tables" />
+					<NavLink
+						href={resolve('/components/overlays')}
+						icon={PanelsTopLeft}
+						label="Overlays & tabs"
+					/>
+					<NavLink href={resolve('/components/feedback')} icon={MessageSquare} label="Feedback" />
+					<NavLink href={resolve('/components/forms')} icon={TextCursorInput} label="Forms" />
+					<NavLink href={resolve('/components/combobox')} icon={Combine} label="Combobox" />
+					<NavLink href={resolve('/components/emails')} icon={Mail} label="Emails" />
+				</SidebarGroup>
 
-			<Span class="nav-group-label" bold color="tertiary">More</Span>
-			<NavLink href={resolve('reference')} label="Full reference" />
-		</nav>
-	</aside>
+				<SidebarGroup label="More">
+					<NavLink href={resolve('/reference')} icon={BookOpen} label="Full reference" />
+				</SidebarGroup>
 
-	<div class="main-col">
-		<header class="topbar">
-			<span class="topbar-tagline">Component &amp; design-token showcase</span>
-			<Button
-				aria-label="Toggle dark mode"
-				icon
-				onclick={() => theme.toggle()}
-				size="sm"
-				variant="ghost"
-			>
-				{#if theme.dark}
-					<Sun size={14} />
-				{:else}
-					<Moon size={14} />
-				{/if}
-			</Button>
-		</header>
-
-		<main>
-			{@render children()}
-		</main>
-	</div>
+				{#snippet foot()}
+					<span class="tagline"><Layers size={13} /> Components &amp; tokens</span>
+					<SidebarButton aria-label="Toggle theme" onclick={() => theme.toggle()}>
+						{#if theme.dark}<Sun size={14} />{:else}<Moon size={14} />{/if}
+					</SidebarButton>
+				{/snippet}
+			</Sidebar>
+		{/snippet}
+		{#snippet content()}
+			<main>{@render children()}</main>
+		{/snippet}
+	</SplitShell>
 </div>
 
 <Toaster position="bottom-right" theme={theme.dark ? 'dark' : 'light'} />
 
 <style>
-	.shell {
-		display: flex;
-		min-height: 100dvh;
-	}
-
-	.sidebar {
-		display: flex;
-		flex-direction: column;
-		flex-shrink: 0;
-		width: 232px;
-		height: 100dvh;
-		position: sticky;
-		top: 0;
-		padding: var(--spacing-md) var(--spacing-sm);
-		border-right: 1px solid var(--bd);
-		background: var(--sf);
-		overflow-y: auto;
-	}
-
-	.wordmark {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-xs);
-		padding: var(--spacing-xs) var(--spacing-sm) var(--spacing-md);
-		font-family: var(--font-heading);
-		font-size: 15px;
-		font-weight: 600;
-		letter-spacing: -0.01em;
-		color: var(--tx);
-		text-decoration: none;
-	}
-	.wordmark-dot {
-		width: 8px;
-		height: 8px;
-		border-radius: 50%;
-		background: var(--acc);
-	}
-
-	nav {
-		display: flex;
-		flex-direction: column;
-		gap: 1px;
-	}
-
-	:global(.nav-group-label) {
-		display: block;
-		margin: var(--spacing-sm) var(--spacing-sm) 4px;
-		font-size: 10px;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-	:global(.nav-group-label:first-child) {
-		margin-top: 0;
-	}
-
-	.main-col {
-		display: flex;
-		flex-direction: column;
+	.tagline {
 		flex: 1;
 		min-width: 0;
-	}
-
-	.topbar {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		height: 52px;
-		flex-shrink: 0;
-		padding: 0 var(--spacing-lg);
-		border-bottom: 1px solid var(--bd);
-	}
-	.topbar-tagline {
-		font-size: 12px;
+		gap: 6px;
+		padding: 0 6px;
 		color: var(--txs);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	main {
-		flex: 1;
 		padding: 40px 28px 80px;
 		max-width: 1040px;
 	}
