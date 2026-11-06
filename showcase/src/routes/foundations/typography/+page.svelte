@@ -32,7 +32,7 @@
 
 <ShowcaseSection
 	code={headings.map((h) => `<Title level={${h.level}}>The quick brown fox</Title>`).join('\n')}
-	description="Font family: --font-heading. Size / weight / letter-spacing noted per level. level picks both the tag AND the size — there's no separate size prop, so a custom font-size can never drift from its matching letter-spacing/line-height."
+	description="Font family: --font-heading. Size / weight / letter-spacing noted per level. level picks the size (and the tag, unless you pass tag) — there's no separate size prop, so a custom font-size can never drift from its matching letter-spacing/line-height."
 	title="Heading scale"
 >
 	<div class="text-reset">
@@ -43,6 +43,20 @@
 					<span class="heading-meta">h{h.level} · {h.size}</span>
 				</div>
 			{/each}
+		</Stack>
+	</div>
+</ShowcaseSection>
+
+<ShowcaseSection
+	code={`<Title level={5} tag="h1">Real h1, level-5 size</Title>
+<Title level={5}>Default h5, level-5 size</Title>`}
+	description="tag sets the element without changing the size — keep one real h1 per page for SEO and screen readers while styling it at any level. The two lines below look identical."
+	title="Tag vs level"
+>
+	<div class="text-reset">
+		<Stack gap="md">
+			<Title level={5} tag="h1">Real h1, level-5 size</Title>
+			<Title level={5}>Default h5, level-5 size</Title>
 		</Stack>
 	</div>
 </ShowcaseSection>
