@@ -37,7 +37,7 @@
 					note: 'Built on @internationalized/date — see docs/datetime.md for the CalendarDate/ZonedDateTime convention.',
 				},
 				{
-					component: 'PinField / HexColorField / PasswordField',
+					component: 'PinField / HexColorField',
 					import: '@zeyolabs/ui/form/fields',
 					note: 'Same Field pattern as TextField/EmailField shown in Components → Forms.',
 				},
