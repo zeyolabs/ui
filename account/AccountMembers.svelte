@@ -1,14 +1,14 @@
 <script lang="ts">
 	import Trash2 from '@lucide/svelte/icons/trash-2';
 	import UserPlus from '@lucide/svelte/icons/user-plus';
-	import { InviteSchema } from '@zeyolabs/kit/auth/account-schemas';
 	import {
 		getAccountMembers,
 		inviteMemberForm,
 		removeMemberCmd,
 		revokeInviteCmd,
 		setMemberPolicyCmd,
-	} from '@zeyolabs/kit/auth/accounts.remote';
+	} from '@zeyolabs/kit/auth/accounts/accounts.remote';
+	import { InviteSchema } from '@zeyolabs/kit/auth/accounts/schemas';
 	import { toast } from 'svelte-sonner';
 
 	import Badge from '../badge/Badge.svelte';

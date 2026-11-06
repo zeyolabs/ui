@@ -4,7 +4,7 @@
 		deletePolicyCmd,
 		getAccountMembers,
 		savePolicyCmd,
-	} from '@zeyolabs/kit/auth/accounts.remote';
+	} from '@zeyolabs/kit/auth/accounts/accounts.remote';
 	import { toast } from 'svelte-sonner';
 
 	import Badge from '../badge/Badge.svelte';
