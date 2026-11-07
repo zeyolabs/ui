@@ -11,9 +11,9 @@
 	type Level = 1 | 2 | 3 | 4 | 5 | 6;
 
 	const headings: { level: Level; size: string }[] = [
-		{ level: 1, size: '50px / 400 / -2px' },
-		{ level: 2, size: '48px / 400 / -2px' },
-		{ level: 3, size: '32px / 400 / -1px' },
+		{ level: 1, size: 'clamp(2.25rem, 6vw, 56px) / 400 / -2px' },
+		{ level: 2, size: 'clamp(1.85rem, 5vw, 48px) / 400 / -2px' },
+		{ level: 3, size: 'clamp(1.5rem, 3.6vw, 32px) / 400 / -1px' },
 		{ level: 4, size: '22px / 600' },
 		{ level: 5, size: '18px / 600' },
 		{ level: 6, size: '16px / 600' },
