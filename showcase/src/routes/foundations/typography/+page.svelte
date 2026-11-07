@@ -9,14 +9,13 @@
 	import ShowcaseSection from '#lib/showcase/ShowcaseSection.svelte';
 
 	type Level = 1 | 2 | 3 | 4 | 5 | 6;
+	type Size = 'lg' | 'md' | 'sm' | 'xl';
 
-	const headings: { level: Level; size: string }[] = [
-		{ level: 1, size: 'clamp(2.25rem, 6vw, 56px) / 400 / -2px' },
-		{ level: 2, size: 'clamp(1.85rem, 5vw, 48px) / 400 / -2px' },
-		{ level: 3, size: 'clamp(1.5rem, 3.6vw, 32px) / 400 / -1px' },
-		{ level: 4, size: '22px / 600' },
-		{ level: 5, size: '18px / 600' },
-		{ level: 6, size: '16px / 600' },
+	const sizes: { level: Level; size: Size; spec: string }[] = [
+		{ level: 1, size: 'xl', spec: 'clamp(2.25rem, 6vw, 56px) / 400 / 1.08 / -2px' },
+		{ level: 2, size: 'lg', spec: 'clamp(1.85rem, 5vw, 48px) / 400 / 1.08 / -2px' },
+		{ level: 3, size: 'md', spec: '22px / 600 / 1.3 / -0.01em' },
+		{ level: 4, size: 'sm', spec: '16px / 600 / 1.5 / -0.01em' },
 	];
 </script>
 
@@ -31,18 +30,34 @@
 />
 
 <ShowcaseSection
-	code={headings.map((h) => `<Title level={${h.level}}>The quick brown fox</Title>`).join('\n')}
-	description="Font family: --font-heading. Size / weight / letter-spacing noted per level. level picks both the tag AND the size — there's no separate size prop, so a custom font-size can never drift from its matching letter-spacing/line-height."
-	title="Heading scale"
+	code={sizes
+		.map((s) => `<Title level={${s.level}} size="${s.size}">The quick brown fox</Title>`)
+		.join('\n')}
+	description="Four sizes: xl, lg, md, sm (font-size / weight / line-height / letter-spacing noted per size). size sets the look; level sets the h1-h6 tag. Omit size and it follows level: 1 xl, 2 lg, 3-4 md, 5-6 sm."
+	title="Title sizes"
 >
 	<div class="text-reset">
 		<Stack gap="md">
-			{#each headings as h (h.level)}
+			{#each sizes as s (s.size)}
 				<div class="heading-row">
-					<Title level={h.level}>The quick brown fox</Title>
-					<span class="heading-meta">h{h.level} · {h.size}</span>
+					<Title level={s.level} size={s.size}>The quick brown fox</Title>
+					<span class="heading-meta">{s.size} · {s.spec}</span>
 				</div>
 			{/each}
+		</Stack>
+	</div>
+</ShowcaseSection>
+
+<ShowcaseSection
+	code={`<Title level={2} size="md">An h2 that looks like md</Title>
+<Title level={1} size="sm">An h1 that looks like sm</Title>`}
+	description="level is only the tag, size is only the look. Keep one real h1 per page and style it at any size."
+	title="Size vs level"
+>
+	<div class="text-reset">
+		<Stack gap="md">
+			<Title level={2} size="md">An h2 that looks like md</Title>
+			<Title level={1} size="sm">An h1 that looks like sm</Title>
 		</Stack>
 	</div>
 </ShowcaseSection>
