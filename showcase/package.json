@@ -39,7 +39,7 @@
 	},
 	"dependencies": {
 		"@lucide/svelte": "1.52.0",
-		"@zeyolabs/kit": "2026.11.6",
+		"@zeyolabs/kit": "2026.11.13",
 		"@zeyolabs/ui": "workspace:*",
 		"svelte-sonner": "1.2.1",
 		"zod": "4.6.5"
