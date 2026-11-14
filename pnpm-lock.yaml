@@ -58,8 +58,8 @@ importers:
         specifier: 2.2.12
         version: 2.2.12
       '@zeyolabs/kit':
-        specifier: 2026.11.6
-        version: 2026.11.6(b53303a7601ac0e1f39c65c239aaa807)
+        specifier: 2026.11.13
+        version: 2026.11.13(b53303a7601ac0e1f39c65c239aaa807)
       eslint:
         specifier: 9.39.4
         version: 9.39.4(jiti@2.7.0)
@@ -106,8 +106,8 @@ importers:
         specifier: 1.52.0
         version: 1.52.0(svelte@5.57.3(@typescript-eslint/types@8.72.1))
       '@zeyolabs/kit':
-        specifier: 2026.11.6
-        version: 2026.11.6(b53303a7601ac0e1f39c65c239aaa807)
+        specifier: 2026.11.13
+        version: 2026.11.13(b53303a7601ac0e1f39c65c239aaa807)
       '@zeyolabs/ui':
         specifier: workspace:*
         version: link:..
@@ -1312,8 +1312,8 @@ packages:
     resolution: {integrity: sha512-SB8xqipSzZHUePCCLNeYxqnxq83X61/qzNhjQGbTfjxGZIeOEP7tBgWYX05Tcd6CgE02WdTJnh5b8kMZJ/+bnQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@zeyolabs/kit@2026.11.6':
-    resolution: {integrity: sha512-DCBfL1/kumbV0UQiMRifxnevZf5+K365DMHZQNBURgsw4B5P5jaciy2dbYbCzad0tsUm7EcofzocKl5OjrlPpg==}
+  '@zeyolabs/kit@2026.11.13':
+    resolution: {integrity: sha512-smGSyjiEwunBXjHTY8yKjz1WNZS/wqLs82ELd8n0GE9761l34CTN/Yauhn4AJpzyqQYEJKI5obq7XSYqvLm1Pg==}
     engines: {node: '>=24.0.0', pnpm: ^11.0.0}
     peerDependencies:
       '@cloudflare/workers-types': '*'
@@ -1322,6 +1322,7 @@ packages:
       '@sveltejs/kit': ^3.1.1
       drizzle-orm: ^0.45.3
       eslint: ^9.39.4
+      miniflare: ^4.20260730.0
       vitest: ^4.1.11
       zod: ^4.6.5
     peerDependenciesMeta:
@@ -1330,6 +1331,8 @@ packages:
       '@electric-sql/pglite':
         optional: true
       eslint:
+        optional: true
+      miniflare:
         optional: true
       vitest:
         optional: true
@@ -2594,6 +2597,7 @@ packages:
 
   tldts-core@7.4.20:
     resolution: {integrity: sha512-C630TWXZCZmLq0F2bW4QqwnaaxCQ/svpAqvJwnC4JvgEM5ohhBnGsEzTLSOXcN+xjz+kEaHS5uoWIw2klnqd0A==}
+    deprecated: Partial release, see https://github.com/remusao/tldts/issues/2735. Use >=7.4.22.
 
   tldts@7.4.16:
     resolution: {integrity: sha512-QwBER5KMR86IIjpIiO7H/Z3IMJPsZ1A6RKPAqzTTgOyUQUSt9FdnKcqhTaJmkY6HVrgouZHZR0ncK5QxvmnQeg==}
@@ -3691,7 +3695,7 @@ snapshots:
       '@typescript-eslint/types': 8.72.1
       eslint-visitor-keys: 5.0.1
 
-  '@zeyolabs/kit@2026.11.6(b53303a7601ac0e1f39c65c239aaa807)':
+  '@zeyolabs/kit@2026.11.13(b53303a7601ac0e1f39c65c239aaa807)':
     dependencies:
       '@bufbuild/protobuf': 2.16.0
       '@clickhouse/client-web': 1.24.0
