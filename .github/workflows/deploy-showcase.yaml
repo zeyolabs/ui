@@ -23,11 +23,11 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.4.0
+      - uses: pnpm/action-setup@v4.4.0
+      - uses: actions/setup-node@v4.4.0
         with:
-          node-version: 24
+          node-version: 24.22.3
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm showcase:deploy
