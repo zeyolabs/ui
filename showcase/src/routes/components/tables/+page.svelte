@@ -260,14 +260,14 @@
 const allSelected = $derived(selectedIds.size > 0 && selectedIds.size === campaigns.length);
 const someSelected = $derived(selectedIds.size > 0 && !allSelected);
 
-function toggleSelectAll() {
-  selectedIds = allSelected ? new Set() : new Set(campaigns.map((c) => c.name));
-}
 function toggleSelect(id) {
   const s = new Set(selectedIds);
   if (s.has(id)) s.delete(id);
   else s.add(id);
   selectedIds = s;
+}
+function toggleSelectAll() {
+  selectedIds = allSelected ? new Set() : new Set(campaigns.map((c) => c.name));
 }
 
 {#if selectedIds.size > 0}
