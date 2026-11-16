@@ -153,7 +153,7 @@
 		"@eslint/compat": "2.1.1",
 		"@eslint/js": "9.39.5",
 		"@zeyolabs/kit": "2026.11.23",
-		"@sveltejs/kit": "3.1.1",
+		"@sveltejs/kit": "3.2.0",
 		"@types/flickity": "2.2.12",
 		"eslint": "9.39.5",
 		"eslint-config-prettier": "10.1.8",
@@ -165,7 +165,7 @@
 		"prettier-plugin-svelte": "4.1.1",
 		"svelte": "5.57.3",
 		"svelte-check": "4.7.8",
-		"svelte-eslint-parser": "1.8.1",
+		"svelte-eslint-parser": "1.10.1",
 		"typescript": "6.0.3",
 		"typescript-eslint": "8.72.2"
 	},
