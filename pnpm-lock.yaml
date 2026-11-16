@@ -16,8 +16,8 @@ importers:
         specifier: 3.12.4
         version: 3.12.4
       '@lucide/svelte':
-        specifier: 1.52.0
-        version: 1.52.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
+        specifier: 1.73.0
+        version: 1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
       '@sentry/sveltekit':
         specifier: 11.4.0
         version: 11.4.0(@cloudflare/workers-types@5.20261104.1)(@sveltejs/kit@3.2.0(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.2))(vite@8.3.8(@types/node@22.19.19)(esbuild@0.28.2)(jiti@2.7.0)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(typescript@6.0.3)(vite@8.3.8(@types/node@22.19.19)(esbuild@0.28.2)(jiti@2.7.0)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(vite@8.3.8(@types/node@22.19.19)(esbuild@0.28.2)(jiti@2.7.0))(wrangler@4.162.0(@cloudflare/workers-types@5.20261104.1)(@types/node@22.19.19))
@@ -107,8 +107,8 @@ importers:
   showcase:
     dependencies:
       '@lucide/svelte':
-        specifier: 1.52.0
-        version: 1.52.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
+        specifier: 1.73.0
+        version: 1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
       '@zeyolabs/kit':
         specifier: 2026.11.23
         version: 2026.11.23(ac2a0565583fc8de9648113632f3556f)
@@ -679,8 +679,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@lucide/svelte@1.52.0':
-    resolution: {integrity: sha512-bQ8t3IcZxWqAdmdMZPyZEv8Qf+MDgBAf7n43eRQoXyBeLWr8HWToiMIO6vKlHxC/lnMiCDdTzm09hjy92ch46A==}
+  '@lucide/svelte@1.73.0':
+    resolution: {integrity: sha512-Rz1uA9aTJ7HA/j2Hf9Dm2OVM8NtkzHnNeIQvVWoUkpf1ZD/7dR9cB4ftjbOiWAeJrKkEAVvTDrcVtITFdx6KAA==}
     peerDependencies:
       svelte: ^5
 
@@ -3093,7 +3093,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  '@lucide/svelte@1.52.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))':
+  '@lucide/svelte@1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))':
     dependencies:
       svelte: 5.57.3(@typescript-eslint/types@8.72.2)
 
