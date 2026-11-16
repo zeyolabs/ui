@@ -140,7 +140,7 @@
 		"@lucide/svelte": "1.73.0",
 		"@sentry/sveltekit": "11.4.0",
 		"@standard-schema/spec": "1.1.0",
-		"bits-ui": "2.19.5",
+		"bits-ui": "2.21.0",
 		"flickity": "3.0.0",
 		"flickity-fullscreen": "2.0.0",
 		"libphonenumber-js": "1.13.16",
