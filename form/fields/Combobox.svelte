@@ -108,15 +108,15 @@
 	const SEARCH_DEBOUNCE_MS = 250;
 	let searchTimer: ReturnType<typeof setTimeout> | undefined;
 	let lastSearch = '';
+	function scheduleSearch(value: string) {
+		clearTimeout(searchTimer);
+		searchTimer = setTimeout(() => sendSearch(value), SEARCH_DEBOUNCE_MS);
+	}
 	function sendSearch(value: string) {
 		clearTimeout(searchTimer);
 		if (!onSearch || value === lastSearch) return;
 		lastSearch = value;
 		onSearch(value);
-	}
-	function scheduleSearch(value: string) {
-		clearTimeout(searchTimer);
-		searchTimer = setTimeout(() => sendSearch(value), SEARCH_DEBOUNCE_MS);
 	}
 
 	// `as('select'|'select multiple')` is reached only via the `form` branch — SvelteKit's remote

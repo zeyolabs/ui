@@ -33,14 +33,14 @@
 	let selectedIds = $state<Set<string>>(new Set());
 	const allSelected = $derived(selectedIds.size > 0 && selectedIds.size === campaigns.length);
 	const someSelected = $derived(selectedIds.size > 0 && !allSelected);
-	function toggleSelectAll() {
-		selectedIds = allSelected ? new Set() : new Set(campaigns.map((c) => c.name));
-	}
 	function toggleSelect(id: string) {
 		const s = new Set(selectedIds);
 		if (s.has(id)) s.delete(id);
 		else s.add(id);
 		selectedIds = s;
+	}
+	function toggleSelectAll() {
+		selectedIds = allSelected ? new Set() : new Set(campaigns.map((c) => c.name));
 	}
 
 	// Sortable-header demo — TableCell owns the click target + arrow icon, the caller owns
