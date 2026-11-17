@@ -41,6 +41,7 @@
 	const fontSize = $derived(resolvedSize * (24 / 108));
 </script>
 
+<!-- eslint-disable-next-line svelte/no-restricted-html-elements -- a drawn progress ring, not an icon -->
 <svg height={resolvedSize} viewBox="0 0 {resolvedSize} {resolvedSize}" width={resolvedSize}>
 	<circle
 		cx={center}

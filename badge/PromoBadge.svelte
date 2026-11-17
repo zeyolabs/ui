@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 	import { onMount } from 'svelte';
 
 	type UnicornScene = {
@@ -228,18 +229,14 @@
 			{href}
 		>
 			<span>{@render children()}</span>
-			<svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-			</svg>
+			<ChevronRight class="w-2.5 h-2.5" aria-hidden="true" strokeWidth={2} />
 		</a>
 	{:else}
 		<span
 			class="{styles.link}  px-3 py-1 sm inline-flex items-center gap-1.5 transition-colors cursor-pointer"
 		>
 			<span>{@render children()}</span>
-			<svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-			</svg>
+			<ChevronRight class="w-2.5 h-2.5" aria-hidden="true" strokeWidth={2} />
 		</span>
 	{/if}
 </div>
