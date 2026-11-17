@@ -218,6 +218,7 @@
 				{#snippet label()}Active campaigns{/snippet}
 				{#snippet value()}12{/snippet}
 				{#snippet chart()}
+					<!-- eslint-disable-next-line svelte/no-restricted-html-elements -- a sparkline chart, not an icon -->
 					<svg
 						style="display:block"
 						height="22"

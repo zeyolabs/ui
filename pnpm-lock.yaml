@@ -62,8 +62,8 @@ importers:
         specifier: 2.2.12
         version: 2.2.12
       '@zeyolabs/kit':
-        specifier: 2026.11.33
-        version: 2026.11.33(d2a630c65a038b709f0dea7f0ca59791)
+        specifier: 2026.11.35
+        version: 2026.11.35(d2a630c65a038b709f0dea7f0ca59791)
       eslint:
         specifier: 10.15.0
         version: 10.15.0(jiti@2.7.0)
@@ -110,8 +110,8 @@ importers:
         specifier: 1.73.0
         version: 1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
       '@zeyolabs/kit':
-        specifier: 2026.11.33
-        version: 2026.11.33(d2a630c65a038b709f0dea7f0ca59791)
+        specifier: 2026.11.35
+        version: 2026.11.35(d2a630c65a038b709f0dea7f0ca59791)
       '@zeyolabs/ui':
         specifier: workspace:*
         version: link:..
@@ -460,10 +460,6 @@ packages:
     peerDependenciesMeta:
       eslint:
         optional: true
-
-  '@eslint/js@9.39.5':
-    resolution: {integrity: sha512-QywQuszQh77pIXCsq998c8hbhSTI/azTty1Z6N53dmAudKHhy573j3yvRLsX2BSp8YpLtoCEG8E9DJe+8zUh4A==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/object-schema@3.0.5':
     resolution: {integrity: sha512-vqTaUEgxzm+YDSdElad6PiRoX4t8VGDjCtt05zn4nU810UIx/uNEV7/lZJ6KwFThKZOzOxzXy48da+No7HZaMw==}
@@ -1357,8 +1353,8 @@ packages:
     resolution: {integrity: sha512-NAGrjn0Pitjqzq/GkgMC4kBYm233PQ8GffyQ9+kTA3AlNQYEzOf25EIM02BAHZv5FRJSpHpJk+OGUxVkOB93GQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@zeyolabs/kit@2026.11.33':
-    resolution: {integrity: sha512-TDne0MF4uiU95vAK+W99B00sIsA3PW/u0ZvxnKu7wPte90mLCLYuwToWfQNs1P4RjxmWz6tPL7pQB5honzLOMg==}
+  '@zeyolabs/kit@2026.11.35':
+    resolution: {integrity: sha512-uwHEez17fbUvMWaACWQmJF04Oj8LypQipFTksXB1QSzCbptam2ECvsWz9hQNQoWjqJjYNpOZWvr6nkX4Xrw7Xw==}
     engines: {node: '>=24.0.0', pnpm: ^11.0.0}
     peerDependencies:
       '@cloudflare/workers-types': '*'
@@ -1366,7 +1362,7 @@ packages:
       '@sentry/sveltekit': ^11.4.0
       '@sveltejs/kit': ^3.1.1
       drizzle-orm: ^0.45.3
-      eslint: ^9.39.4
+      eslint: ^9.39.4 || ^10.0.0
       miniflare: ^4.20260730.0
       vitest: ^4.1.11
       zod: ^4.6.5
@@ -2880,8 +2876,6 @@ snapshots:
     optionalDependencies:
       eslint: 10.15.0(jiti@2.7.0)
 
-  '@eslint/js@9.39.5': {}
-
   '@eslint/object-schema@3.0.5': {}
 
   '@eslint/plugin-kit@0.7.3':
@@ -3651,13 +3645,13 @@ snapshots:
       '@typescript-eslint/types': 8.72.2
       eslint-visitor-keys: 5.0.1
 
-  '@zeyolabs/kit@2026.11.33(d2a630c65a038b709f0dea7f0ca59791)':
+  '@zeyolabs/kit@2026.11.35(d2a630c65a038b709f0dea7f0ca59791)':
     dependencies:
       '@bufbuild/protobuf': 2.17.0
       '@clickhouse/client-web': 1.25.0
       '@clickhouse/rowbinary': 0.1.1
       '@eslint/compat': 2.1.1(eslint@10.15.0(jiti@2.7.0))
-      '@eslint/js': 9.39.5
+      '@eslint/js': 10.0.1(eslint@10.15.0(jiti@2.7.0))
       '@internationalized/date': 3.12.4
       '@oslojs/crypto': 1.0.1
       '@oslojs/encoding': 1.1.0
