@@ -43,7 +43,7 @@ export function loadTurnstile(): Promise<null | TurnstileApi> {
 			},
 			{ once: true }
 		);
-		document.head.append(script);
+		document.head.appendChild(script);
 	});
 	return loading;
 }
