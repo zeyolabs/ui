@@ -19,6 +19,8 @@
 	import Form from '../form/Form.svelte';
 	import Select from '../form/primitives/Select.svelte';
 	import SkeletonText from '../skeleton/SkeletonText.svelte';
+	import Span from '../text/Span.svelte';
+	import Title from '../text/Title.svelte';
 
 	/**
 	 * Members of the request's account (`@zeyolabs/kit/auth`): who is in it, with which policy,
@@ -49,13 +51,13 @@
 	{const policyName = (key: string) => data.policies.find((p) => p.key === key)?.name ?? key}
 
 	<Card gap="sm" padding="md">
-		<h2 class="account-title">{title}</h2>
+		<Title level={2} size="xs">{title}</Title>
 		<ul class="account-list">
 			{#each data.members as member (member.userId)}
 				<li>
 					<div class="who">
-						<span class="name">{member.name}</span>
-						<span class="sub">{member.email}</span>
+						<Span bold>{member.name}</Span>
+						<Span color="tertiary" size="sm">{member.email}</Span>
 					</div>
 					{#if data.can.manage && member.userId !== data.me.userId && (member.policy !== 'owner' || data.me.policy === 'owner')}
 						<Select
@@ -91,15 +93,15 @@
 		</ul>
 
 		{#if data.invites.length}
-			<h3 class="account-subtitle">Pending invitations</h3>
+			<Title level={3} size="xs">Pending invitations</Title>
 			<ul class="account-list">
 				{#each data.invites as invite (invite.email)}
 					<li>
 						<div class="who">
-							<span class="name">{invite.email}</span>
-							<span class="sub">
+							<Span bold>{invite.email}</Span>
+							<Span color="tertiary" size="sm">
 								{policyName(invite.policy)}, expires {day.format(invite.expiresAt)}
-							</span>
+							</Span>
 						</div>
 						{#if data.can.invite}
 							<Button
@@ -142,17 +144,6 @@
 </Boundary>
 
 <style>
-	.account-title {
-		margin: 0;
-		font-size: var(--text-base);
-		font-weight: 600;
-	}
-	.account-subtitle {
-		margin: 4px 0 0;
-		font-size: 12px;
-		font-weight: 600;
-		color: var(--txs);
-	}
 	.account-list {
 		display: flex;
 		flex-direction: column;
@@ -172,13 +163,6 @@
 		flex: 1;
 		flex-direction: column;
 		min-width: 0;
-	}
-	.name {
-		font-weight: 500;
-	}
-	.sub {
-		color: var(--txt);
-		font-size: 12px;
 	}
 	.account-list :global(.policy) {
 		width: 160px;
