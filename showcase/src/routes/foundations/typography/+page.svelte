@@ -9,13 +9,14 @@
 	import ShowcaseSection from '#lib/showcase/ShowcaseSection.svelte';
 
 	type Level = 1 | 2 | 3 | 4 | 5 | 6;
-	type Size = 'lg' | 'md' | 'sm' | 'xl';
+	type Size = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 
 	const sizes: { level: Level; size: Size; spec: string }[] = [
 		{ level: 1, size: 'xl', spec: 'clamp(2.25rem, 6vw, 56px) / 400 / 1.08 / -2px' },
 		{ level: 2, size: 'lg', spec: 'clamp(1.85rem, 5vw, 48px) / 400 / 1.08 / -2px' },
 		{ level: 3, size: 'md', spec: '22px / 600 / 1.3 / -0.01em' },
 		{ level: 4, size: 'sm', spec: '16px / 600 / 1.5 / -0.01em' },
+		{ level: 5, size: 'xs', spec: 'body size / 600 / 1.5 / 0, card headings' },
 	];
 </script>
 

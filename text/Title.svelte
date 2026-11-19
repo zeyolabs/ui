@@ -4,7 +4,7 @@
 	import { BG_CLASS, type Color, COLOR_CLASS } from './color';
 
 	type Level = 1 | 2 | 3 | 4 | 5 | 6;
-	type Size = 'lg' | 'md' | 'sm' | 'xl';
+	type Size = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 
 	const DEFAULT_SIZE: Record<Level, Size> = {
 		1: 'xl',
@@ -46,7 +46,7 @@
 		 * default `size` below. */
 		level: Level;
 		maxWidth?: string;
-		/** The look: `xl` | `lg` | `md` | `sm`. Omit it and it follows `level` (1 xl, 2 lg, 3-4 md,
+		/** The look: `xl` | `lg` | `md` | `sm` | `xs` (body size, for card headings). Omit it and it follows `level` (1 xl, 2 lg, 3-4 md,
 		 * 5-6 sm), so pass it only when the look and the tag differ. */
 		size?: Size;
 		/** Single-line ellipsis. Needs a bounded width from context (a flex child needs its own

@@ -14,6 +14,8 @@
 	import Checkbox from '../form/primitives/Checkbox.svelte';
 	import Input from '../form/primitives/Input.svelte';
 	import SkeletonText from '../skeleton/SkeletonText.svelte';
+	import Span from '../text/Span.svelte';
+	import Title from '../text/Title.svelte';
 
 	/**
 	 * The account's policies (`@zeyolabs/kit/auth`): the built-in ones, read-only, and the
@@ -69,7 +71,7 @@
 
 	<Card gap="sm" padding="md">
 		<div class="head">
-			<h2 class="policies-title">{title}</h2>
+			<Title level={2} size="xs">{title}</Title>
 			{#if data.can.managePolicies && !draft}
 				<Button onclick={() => edit()} size="sm" variant="secondary">
 					<Plus size={13} /> New policy
@@ -81,12 +83,12 @@
 			{#each data.policies as policy (policy.key)}
 				<li>
 					<div class="what">
-						<span class="name">{policy.name}</span>
-						<span class="sub">
+						<Span bold>{policy.name}</Span>
+						<Span color="tertiary" size="sm">
 							{policy.permissions.includes('*')
 								? 'Everything'
 								: policy.permissions.join(', ') || 'Nothing'}
-						</span>
+						</Span>
 					</div>
 					{#if policy.builtIn}
 						<Badge dot={false}>Built in</Badge>
@@ -150,11 +152,6 @@
 		align-items: center;
 		justify-content: space-between;
 	}
-	.policies-title {
-		margin: 0;
-		font-size: var(--text-base);
-		font-weight: 600;
-	}
 	.policies {
 		display: flex;
 		flex-direction: column;
@@ -174,13 +171,6 @@
 		flex: 1;
 		flex-direction: column;
 		min-width: 0;
-	}
-	.name {
-		font-weight: 500;
-	}
-	.sub {
-		color: var(--txt);
-		font-size: 12px;
 	}
 	.editor {
 		display: flex;
