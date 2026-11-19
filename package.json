@@ -27,6 +27,7 @@
 		"showcase:deploy": "pnpm --filter showcase cf-deploy"
 	},
 	"files": [
+		"!**/*.test.ts",
 		"account",
 		"back-button",
 		"badge",
@@ -67,8 +68,8 @@
 		"text",
 		"theme",
 		"tokens.css",
-		"typography.css",
-		"!**/*.test.ts"
+		"turnstile",
+		"typography.css"
 	],
 	"exports": {
 		"./template.css": "./template.css",
@@ -128,7 +129,8 @@
 		"./layout/*": "./layout/*",
 		"./gallery/*": "./gallery/*",
 		"./theme/theme.svelte": "./theme/theme.svelte.ts",
-		"./theme/*": "./theme/*"
+		"./theme/*": "./theme/*",
+		"./turnstile/*": "./turnstile/*"
 	},
 	"peerDependencies": {
 		"@zeyolabs/kit": ">=2026.11.6",
