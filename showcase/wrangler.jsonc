@@ -1,9 +1,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "ui",
-	"main": ".svelte-kit/cloudflare/_worker.js",
-	"compatibility_date": "2026-04-21",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_date": "2026-11-13",
 	"workers_dev": false,
 	"preview_urls": false,
 	"routes": [{ "pattern": "ui.zeyo.dev", "custom_domain": true }],
