@@ -7,6 +7,7 @@
 		Combine,
 		Gauge,
 		Grid2x2,
+		KeyRound,
 		Layers,
 		LayoutGrid,
 		Mail,
@@ -65,6 +66,7 @@
 					<NavLink href={resolve('/components/forms')} icon={TextCursorInput} label="Forms" />
 					<NavLink href={resolve('/components/combobox')} icon={Combine} label="Combobox" />
 					<NavLink href={resolve('/components/emails')} icon={Mail} label="Emails" />
+					<NavLink href={resolve('/components/account')} icon={KeyRound} label="Account" />
 				</SidebarGroup>
 
 				<SidebarGroup label="More">
