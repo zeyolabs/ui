@@ -21,7 +21,6 @@
 		"fmt": "prettier --write --cache --cache-location=.cache/.prettier-cache --cache-strategy content .",
 		"fmt:check": "prettier --check --cache --cache-location=.cache/.prettier-cache --cache-strategy content .",
 		"check": "pnpm fmt:check && pnpm lint && pnpm --filter showcase check",
-		"ci": "pnpm check && pnpm showcase:build",
 		"showcase:dev": "pnpm --filter showcase dev",
 		"showcase:build": "pnpm --filter showcase build",
 		"showcase:deploy": "pnpm --filter showcase cf-deploy"
