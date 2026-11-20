@@ -62,8 +62,8 @@ importers:
         specifier: 2.2.12
         version: 2.2.12
       '@zeyolabs/kit':
-        specifier: 2026.11.37
-        version: 2026.11.37(c0e767cacf77259d16d00411e81f3a40)
+        specifier: 2026.11.42
+        version: 2026.11.42(c0e767cacf77259d16d00411e81f3a40)
       eslint:
         specifier: 10.15.0
         version: 10.15.0(jiti@2.7.0)(supports-color@10.2.2)
@@ -110,8 +110,8 @@ importers:
         specifier: 1.73.0
         version: 1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
       '@zeyolabs/kit':
-        specifier: 2026.11.37
-        version: 2026.11.37(c0e767cacf77259d16d00411e81f3a40)
+        specifier: 2026.11.42
+        version: 2026.11.42(c0e767cacf77259d16d00411e81f3a40)
       '@zeyolabs/ui':
         specifier: workspace:*
         version: link:..
@@ -1409,8 +1409,8 @@ packages:
     resolution: {integrity: sha512-NAGrjn0Pitjqzq/GkgMC4kBYm233PQ8GffyQ9+kTA3AlNQYEzOf25EIM02BAHZv5FRJSpHpJk+OGUxVkOB93GQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@zeyolabs/kit@2026.11.37':
-    resolution: {integrity: sha512-pcGcz0MWs7vdgDVCltBzFBOtc+2rRFkvTUQiW1Y/s+mto+jfWXgPUL1Hfw6VmwyPcPTS/y4AMdMtH8wOXjszyg==}
+  '@zeyolabs/kit@2026.11.42':
+    resolution: {integrity: sha512-eDxtj7FdpEr0skdPsx4iEA1rG90w+bnl6Cz1Yf8IOv+hOjwV4+Nkq+iittl/A91L2dSz48ITZbXFyVDAY8ns5A==}
     engines: {node: '>=24.0.0', pnpm: ^11.0.0}
     peerDependencies:
       '@cloudflare/workers-types': '*'
@@ -1420,7 +1420,8 @@ packages:
       drizzle-orm: ^0.45.3
       eslint: ^9.39.4 || ^10.0.0
       miniflare: ^4.20260730.0
-      vitest: ^4.1.11
+      vite: ^8.0.0
+      vitest: ^4.1.11 || ^5.0.0
       zod: ^4.6.5
     peerDependenciesMeta:
       '@cloudflare/workers-types':
@@ -1430,6 +1431,8 @@ packages:
       eslint:
         optional: true
       miniflare:
+        optional: true
+      vite:
         optional: true
       vitest:
         optional: true
@@ -3909,7 +3912,7 @@ snapshots:
       '@typescript-eslint/types': 8.72.2
       eslint-visitor-keys: 5.0.1
 
-  '@zeyolabs/kit@2026.11.37(c0e767cacf77259d16d00411e81f3a40)':
+  '@zeyolabs/kit@2026.11.42(c0e767cacf77259d16d00411e81f3a40)':
     dependencies:
       '@bufbuild/protobuf': 2.17.0
       '@clickhouse/client-web': 1.25.0
@@ -3942,6 +3945,7 @@ snapshots:
     optionalDependencies:
       '@cloudflare/workers-types': 5.20261104.1
       eslint: 10.15.0(jiti@2.7.0)(supports-color@10.2.2)
+      vite: 8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)
     transitivePeerDependencies:
       - '@types/node'
       - pg-native
@@ -3949,7 +3953,6 @@ snapshots:
       - svelte
       - ts-node
       - typescript
-      - vite
       - wrangler
 
   abort-controller@3.0.0:
