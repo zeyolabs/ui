@@ -5,7 +5,7 @@
 	"schedule": ["before 9am on monday"],
 	"rangeStrategy": "pin",
 	"minimumReleaseAge": "1 day",
-	"dependencyDashboard": true,
+	"dependencyDashboard": { "enabled": true },
 	"packageRules": [
 		{
 			"description": "engines say which Node and pnpm we run (CI and packageManager decide), so Renovate must not pin or bump them.",
