@@ -90,11 +90,11 @@
 		color: var(--txt);
 	}
 	.stat-delta[data-dir='up'] {
-		background: #ecfdf5;
+		background: color-mix(in srgb, var(--ok) 10%, transparent);
 		color: var(--ok);
 	}
 	.stat-delta[data-dir='down'] {
-		background: #fef2f2;
+		background: color-mix(in srgb, var(--err) 10%, transparent);
 		color: var(--err);
 	}
 	.stat-chart {

@@ -23,33 +23,33 @@
 	// their existing theme-aware surface since they're not a "status" color to tint.
 	const styles: Record<BadgeColor, { bg: string; border: string; c: string }> = {
 		error: {
-			bg: 'color-mix(in srgb, #DC2626 7%, transparent)',
-			border: 'color-mix(in srgb, #DC2626 25%, transparent)',
-			c: '#DC2626',
+			bg: 'color-mix(in srgb, var(--badge-error) 7%, transparent)',
+			border: 'color-mix(in srgb, var(--badge-error) 25%, transparent)',
+			c: 'var(--badge-error)',
 		},
 		info: {
-			bg: 'color-mix(in srgb, #2563EB 7%, transparent)',
-			border: 'color-mix(in srgb, #2563EB 25%, transparent)',
-			c: '#2563EB',
+			bg: 'color-mix(in srgb, var(--badge-info) 7%, transparent)',
+			border: 'color-mix(in srgb, var(--badge-info) 25%, transparent)',
+			c: 'var(--badge-info)',
 		},
 		// Higher-contrast than `secondary` — full-strength text + a real border, for a chip that
 		// needs to stay legible (e.g. an active-filter value), not a subtle status indicator.
 		neutral: { bg: 'var(--sf)', border: 'var(--bd)', c: 'var(--tx)' },
 		purple: {
-			bg: 'color-mix(in srgb, #7C3AED 7%, transparent)',
-			border: 'color-mix(in srgb, #7C3AED 25%, transparent)',
-			c: '#7C3AED',
+			bg: 'color-mix(in srgb, var(--badge-purple) 7%, transparent)',
+			border: 'color-mix(in srgb, var(--badge-purple) 25%, transparent)',
+			c: 'var(--badge-purple)',
 		},
 		secondary: { bg: 'var(--sf)', border: 'var(--bd)', c: 'var(--txt)' },
 		success: {
-			bg: 'color-mix(in srgb, #059669 7%, transparent)',
-			border: 'color-mix(in srgb, #059669 25%, transparent)',
-			c: '#059669',
+			bg: 'color-mix(in srgb, var(--badge-success) 7%, transparent)',
+			border: 'color-mix(in srgb, var(--badge-success) 25%, transparent)',
+			c: 'var(--badge-success)',
 		},
 		warning: {
-			bg: 'color-mix(in srgb, #D97706 7%, transparent)',
-			border: 'color-mix(in srgb, #D97706 25%, transparent)',
-			c: '#D97706',
+			bg: 'color-mix(in srgb, var(--badge-warning) 7%, transparent)',
+			border: 'color-mix(in srgb, var(--badge-warning) 25%, transparent)',
+			c: 'var(--badge-warning)',
 		},
 	};
 

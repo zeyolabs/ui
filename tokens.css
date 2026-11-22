@@ -39,6 +39,13 @@
 	--control-h-lg: 48px;
 
 	--font-sans: ui-sans-serif, system-ui, sans-serif;
+
+	/* Status colours for badges (a pill tinted from the colour). Apps may map them to their brand. */
+	--badge-error: #dc2626;
+	--badge-info: #2563eb;
+	--badge-purple: #7c3aed;
+	--badge-success: #059669;
+	--badge-warning: #d97706;
 }
 
 .dark {
@@ -59,4 +66,9 @@
 	--ch: rgba(255, 255, 255, 0.02);
 	--acc: #ffffff;
 	--tertiary: #161311;
+	--badge-error: #f87171;
+	--badge-info: #60a5fa;
+	--badge-purple: #a78bfa;
+	--badge-success: #34d399;
+	--badge-warning: #fbbf24;
 }

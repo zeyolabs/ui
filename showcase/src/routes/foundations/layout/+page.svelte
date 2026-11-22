@@ -1,7 +1,9 @@
 <script lang="ts">
 	import Card from '@zeyolabs/ui/card/Card.svelte';
+	import Button from '@zeyolabs/ui/form/Button.svelte';
 	import Cluster from '@zeyolabs/ui/layout/Cluster.svelte';
 	import Grid from '@zeyolabs/ui/layout/Grid.svelte';
+	import PageHeader from '@zeyolabs/ui/layout/PageHeader.svelte';
 	import Section from '@zeyolabs/ui/layout/Section.svelte';
 	import Shell from '@zeyolabs/ui/layout/Shell.svelte';
 	import SplitShell from '@zeyolabs/ui/layout/SplitShell.svelte';
@@ -82,6 +84,23 @@
 			</Cluster>
 		{/each}
 	</Stack>
+</ShowcaseSection>
+
+<ShowcaseSection
+	code={`<PageHeader description="Every scheduled job." title="Jobs">
+  {#snippet actions()}
+    <Button size="sm">New job</Button>
+  {/snippet}
+</PageHeader>`}
+	description="@zeyolabs/ui/layout/PageHeader: a page's title (and an optional line under it) on the left, its actions on the right; the actions wrap below on narrow screens. Use it instead of a hand-made flex row with justify-content: space-between."
+	title="PageHeader"
+>
+	<PageHeader description="Every scheduled job." level={2} title="Jobs">
+		{#snippet actions()}
+			<Button size="sm" variant="secondary">Filter</Button>
+			<Button size="sm">New job</Button>
+		{/snippet}
+	</PageHeader>
 </ShowcaseSection>
 
 <ShowcaseSection
