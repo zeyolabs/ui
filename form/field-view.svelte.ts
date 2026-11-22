@@ -21,6 +21,11 @@ export function setFormChangeListener(listener: () => void): void {
 	setContext(FORM_CHANGE_KEY, listener);
 }
 
+/** The enclosing `<Form>`'s change listener, for a field that sets its value itself. Call at init. */
+export function formChangeListener(): (() => void) | undefined {
+	return getContext<(() => void) | undefined>(FORM_CHANGE_KEY);
+}
+
 /**
  * The surface every field template consumes. Produced either from a `RemoteForm`
  * field (`createFormView`) or from local `$bindable` state (`createLocal*View`).

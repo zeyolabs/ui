@@ -3,6 +3,7 @@
 	import { Button, Combobox, Form } from '@zeyolabs/ui/form';
 	import {
 		CheckboxField,
+		CheckboxGroupField,
 		EmailField,
 		FileField,
 		MessageField,
@@ -20,7 +21,11 @@
 	import Text from '@zeyolabs/ui/text/Text.svelte';
 
 	import { demoContactForm } from '#lib/remote/demo.remote.js';
-	import { DEMO_CONTACT_TOPICS, DemoContactSchema } from '#lib/schemas/demo-contact.schema.js';
+	import {
+		DEMO_CONTACT_TOPICS,
+		DEMO_INTERESTS,
+		DemoContactSchema,
+	} from '#lib/schemas/demo-contact.schema.js';
 	import ShowcaseSection from '#lib/showcase/ShowcaseSection.svelte';
 
 	const topicOptions = DEMO_CONTACT_TOPICS.map((value) => ({
@@ -115,6 +120,15 @@
 		<CheckboxField name="subscribe" form={demoContactForm} optional>
 			Subscribe to updates
 		</CheckboxField>
+		<CheckboxGroupField
+			name="interests"
+			form={demoContactForm}
+			getKey={(i) => i}
+			getLabel={(i) => i[0].toUpperCase() + i.slice(1)}
+			getValue={(i) => i}
+			items={DEMO_INTERESTS}
+			label="Interested in"
+		/>
 		<Button class="mt-1" form={demoContactForm}>Send</Button>
 	</Form>
 </ShowcaseSection>

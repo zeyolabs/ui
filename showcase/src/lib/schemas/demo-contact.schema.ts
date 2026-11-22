@@ -3,9 +3,12 @@ import { Schema } from '@zeyolabs/kit/utils/schema';
 import { z } from 'zod';
 
 export const DEMO_CONTACT_TOPICS = ['general', 'billing', 'bug'] as const;
+export const DEMO_INTERESTS = ['releases', 'events', 'research'] as const;
 
 export const DemoContactSchema = z.object({
 	email: Schema.Email,
+	/** Ticked checkboxes; none ticked sends nothing, hence the default. */
+	interests: z.array(z.enum(DEMO_INTERESTS)).default([]),
 	message: SchemaForm.nullable(Schema.Text.max(500)),
 	name: Schema.Text.max(80),
 	seats: SchemaForm.nullable(SchemaForm.Number),
