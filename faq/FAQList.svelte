@@ -11,7 +11,7 @@
 
 <div class="faq-list">
 	{#each items as item, i (item.question)}
-		{@const open = openIdx === i}
+		{const open = $derived(openIdx === i)}
 		<div class="faq-item" class:faq-open={open}>
 			<button
 				class="faq-q"

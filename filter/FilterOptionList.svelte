@@ -88,7 +88,7 @@
 		tabindex="0"
 	>
 		{#each visible as option, i (option.value)}
-			{@const on = selected.includes(option.value)}
+			{const on = $derived(selected.includes(option.value))}
 			{#if option.group && option.group !== visible[i - 1]?.group}
 				<div class="group">{option.group}</div>
 			{/if}

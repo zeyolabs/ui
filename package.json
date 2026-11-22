@@ -46,6 +46,7 @@
 		"form",
 		"gallery",
 		"grouped-grid",
+		"head",
 		"layout",
 		"list-row",
 		"menu",
@@ -129,7 +130,8 @@
 		"./gallery/*": "./gallery/*",
 		"./theme/theme.svelte": "./theme/theme.svelte.ts",
 		"./theme/*": "./theme/*",
-		"./turnstile/*": "./turnstile/*"
+		"./turnstile/*": "./turnstile/*",
+		"./head/*": "./head/*"
 	},
 	"peerDependencies": {
 		"@zeyolabs/kit": ">=2026.11.6",

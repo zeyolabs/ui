@@ -60,7 +60,7 @@
 				type="button"
 			>
 				{#if item.icon}
-					{@const Icon = item.icon}
+					{const Icon = $derived(item.icon)}
 					<Icon size={14} />
 				{/if}
 				<span>{item.label}</span>

@@ -121,11 +121,11 @@
 <div>
 	<div class="flex {heightClass[height]} items-stretch gap-px">
 		{#each range(maxSlots) as index (index)}
-			{@const slot = paddedSlots[index]}
+			{const slot = $derived(paddedSlots[index])}
 			{#if slot}
-				{@const [key, value] = slot}
-				{@const isDeselected = selected !== undefined && selected !== key}
-				{@const slotColor = backgroundClass[value.color]}
+				{const [key, value] = $derived(slot)}
+				{const isDeselected = $derived(selected !== undefined && selected !== key)}
+				{const slotColor = $derived(backgroundClass[value.color])}
 				{#if onSelect}
 					<button
 						class="{baseSlotClass} cursor-pointer {slotColor} transition-opacity hover:opacity-80"

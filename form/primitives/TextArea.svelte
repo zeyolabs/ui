@@ -21,7 +21,7 @@
 </script>
 
 {#if icon}
-	{@const Icon = icon}
+	{const Icon = $derived(icon)}
 	<div class="form-input-wrapper">
 		<div class="form-input-icon form-input-icon--top">
 			<Icon />
