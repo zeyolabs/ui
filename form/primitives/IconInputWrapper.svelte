@@ -28,7 +28,7 @@
 </script>
 
 {#if icon}
-	{@const Icon = icon}
+	{const Icon = $derived(icon)}
 	<div class={wrapperClass}>
 		<div class={iconClass}>
 			<Icon class="size-5" />

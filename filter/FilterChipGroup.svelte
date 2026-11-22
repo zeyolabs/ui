@@ -21,7 +21,7 @@
 		{#if label}<div class="label">{label}</div>{/if}
 		<div class="chips">
 			{#each chips as chip (chip.value)}
-				{@const on = selected.includes(chip.value)}
+				{const on = $derived(selected.includes(chip.value))}
 				<button
 					class="chip"
 					class:on
