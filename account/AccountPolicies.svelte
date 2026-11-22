@@ -3,16 +3,18 @@
 	import {
 		deletePolicyCmd,
 		getAccountMembers,
-		savePolicyCmd,
+		savePolicyForm,
 	} from '@zeyolabs/kit/auth/accounts/accounts.remote';
+	import { AccountSchemas } from '@zeyolabs/kit/auth/accounts/schemas';
 	import { toast } from 'svelte-sonner';
 
 	import Badge from '../badge/Badge.svelte';
 	import Boundary from '../boundary/Boundary.svelte';
 	import Card from '../card/Card.svelte';
 	import Button from '../form/Button.svelte';
-	import Checkbox from '../form/primitives/Checkbox.svelte';
-	import Input from '../form/primitives/Input.svelte';
+	import CheckboxGroupField from '../form/fields/CheckboxGroupField.svelte';
+	import TextField from '../form/fields/TextField.svelte';
+	import Form from '../form/Form.svelte';
 	import SkeletonText from '../skeleton/SkeletonText.svelte';
 	import Span from '../text/Span.svelte';
 	import Title from '../text/Title.svelte';
@@ -23,37 +25,14 @@
 	 */
 	let { title = 'Policies' }: { title?: string } = $props();
 
-	type Draft = { isNew: boolean; key: string; name: string; permissions: string[] };
+	type Editing = { isNew: boolean; key: string; name: string; permissions: string[] };
 
-	let draft = $state<Draft | null>(null);
-	let saving = $state(false);
+	let editing = $state<Editing | null>(null);
 
 	function edit(policy?: { key: string; name: string; permissions: readonly string[] }) {
-		draft = policy
+		editing = policy
 			? { isNew: false, key: policy.key, name: policy.name, permissions: [...policy.permissions] }
 			: { isNew: true, key: '', name: '', permissions: [] };
-	}
-
-	function toggle(permission: string, on: boolean) {
-		if (!draft) return;
-		draft.permissions = on
-			? [...draft.permissions, permission]
-			: draft.permissions.filter((p) => p !== permission);
-	}
-
-	async function save() {
-		if (!draft) return;
-		saving = true;
-		try {
-			const { key, name, permissions } = draft;
-			await savePolicyCmd({ key: key.trim(), name, permissions });
-			toast.success(`Saved ${name}`);
-			draft = null;
-		} catch (err) {
-			toast.error(err instanceof Error ? err.message : 'Could not save the policy');
-		} finally {
-			saving = false;
-		}
 	}
 
 	async function remove(key: string) {
@@ -72,7 +51,7 @@
 	<Card gap="sm" padding="md">
 		<div class="head">
 			<Title level={2} size="xs">{title}</Title>
-			{#if data.can.managePolicies && !draft}
+			{#if data.can.managePolicies && !editing}
 				<Button onclick={() => edit()} size="sm" variant="secondary">
 					<Plus size={13} /> New policy
 				</Button>
@@ -102,42 +81,42 @@
 			{/each}
 		</ul>
 
-		{#if draft}
-			<div class="editor">
-				<div class="row">
-					<Input
-						aria-label="Policy name"
-						placeholder="Name, e.g. Support"
-						bind:value={draft.name}
-					/>
-					<Input
-						aria-label="Policy key"
-						disabled={!draft.isNew}
-						placeholder="key, e.g. support"
-						bind:value={draft.key}
-					/>
-				</div>
-				<div class="grants">
-					{#each data.permissions as permission (permission)}
-						<Checkbox
-							checked={draft.permissions.includes(permission)}
-							onCheckedChange={(on) => toggle(permission, on)}
-						>
-							{permission}
-						</Checkbox>
-					{/each}
-				</div>
-				<div class="row">
-					<Button
-						disabled={saving || !draft.name.trim() || !draft.key.trim()}
-						onclick={save}
-						size="sm"
+		{#if editing}
+			{#key editing.key || 'new'}
+				<div class="editor">
+					<Form
+						defaults={{ key: editing.key, name: editing.name, permissions: editing.permissions }}
+						form={savePolicyForm}
+						hidden={editing.isNew ? undefined : { key: editing.key }}
+						onSuccess={() => (editing = null)}
+						schema={AccountSchemas.PolicyForm}
 					>
-						{saving ? 'Saving…' : 'Save policy'}
-					</Button>
-					<Button onclick={() => (draft = null)} size="sm" variant="ghost">Cancel</Button>
+						<div class="row">
+							<TextField name="name" form={savePolicyForm} placeholder="Name, e.g. Support">
+								Name
+							</TextField>
+							{#if editing.isNew}
+								<TextField name="key" form={savePolicyForm} placeholder="key, e.g. support">
+									Key
+								</TextField>
+							{/if}
+						</div>
+						<CheckboxGroupField
+							name="permissions"
+							form={savePolicyForm}
+							getKey={(p) => p}
+							getLabel={(p) => p}
+							getValue={(p) => p}
+							items={data.permissions}
+							label="Permissions"
+						/>
+						<div class="row">
+							<Button form={savePolicyForm} size="sm">Save policy</Button>
+							<Button onclick={() => (editing = null)} size="sm" variant="ghost">Cancel</Button>
+						</div>
+					</Form>
 				</div>
-			</div>
+			{/key}
 		{/if}
 	</Card>
 
@@ -182,10 +161,5 @@
 	.row {
 		display: flex;
 		gap: 8px;
-	}
-	.grants {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-		gap: 6px;
 	}
 </style>
