@@ -1,0 +1,26 @@
+<script lang="ts">
+	import { updated } from '$app/state';
+	import { Button } from '@zeyolabs/ui/form';
+	import Text from '@zeyolabs/ui/text/Text.svelte';
+
+	/** Once in the root layout: covers the page when a newer deploy is live, with a reload button. */
+	let {
+		label = 'Reload to update',
+		message = 'A new version is available.',
+	}: {
+		label?: string;
+		message?: string;
+	} = $props();
+</script>
+
+{#if updated.current}
+	<div
+		class="fixed inset-0 z-99999 flex flex-col items-center justify-center gap-4 bg-black/80 p-6 text-center"
+		aria-label={message}
+		aria-modal="true"
+		role="alertdialog"
+	>
+		<Text bold centered color="white">{message}</Text>
+		<Button onclick={() => location.reload()}>{label}</Button>
+	</div>
+{/if}

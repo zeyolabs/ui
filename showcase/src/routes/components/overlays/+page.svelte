@@ -136,6 +136,15 @@
 </ShowcaseSection>
 
 <ShowcaseSection
+	code={`<!-- root +layout.svelte -->
+<UpdateOverlay />`}
+	description="Put once in the root layout. Covers the page when a newer deploy is live (SvelteKit's version poll, or SentryConfig.clientErrors after an error from a stale tab) and reloads on click."
+	title="Update overlay"
+>
+	<Text color="secondary">Shows by itself once a newer deploy of this showcase is live.</Text>
+</ShowcaseSection>
+
+<ShowcaseSection
 	code={`<div style="position: relative;">
   <button onclick={() => (open = !open)}>Options</button>
   <Popover bind:open width={200}>

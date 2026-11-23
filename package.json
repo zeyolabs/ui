@@ -69,7 +69,8 @@
 		"theme",
 		"tokens.css",
 		"turnstile",
-		"typography.css"
+		"typography.css",
+		"update"
 	],
 	"exports": {
 		"./template.css": "./template.css",
@@ -131,7 +132,8 @@
 		"./theme/theme.svelte": "./theme/theme.svelte.ts",
 		"./theme/*": "./theme/*",
 		"./turnstile/*": "./turnstile/*",
-		"./head/*": "./head/*"
+		"./head/*": "./head/*",
+		"./update/*": "./update/*"
 	},
 	"peerDependencies": {
 		"@zeyolabs/kit": ">=2026.11.44",
