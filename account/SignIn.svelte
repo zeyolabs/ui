@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AuthLoads } from '@zeyolabs/kit/auth/sveltekit/loads';
+	import type { AuthLoads } from '@zeyolabs/kit/auth/loads';
 	import type { Snippet } from 'svelte';
 
 	import { goto } from '$app/navigation';
@@ -11,6 +11,7 @@
 	import Input from '../form/primitives/Input.svelte';
 	import Span from '../text/Span.svelte';
 	import Text from '../text/Text.svelte';
+	import Turnstile from '../turnstile/Turnstile.svelte';
 	import AuthAlert from './AuthAlert.svelte';
 
 	/**
@@ -32,6 +33,9 @@
 	// Feature detection only runs in the browser; the server renders the email form alone.
 	let supported = $state(false);
 	onMount(() => (supported = PasskeyClient.supported()));
+
+	// With Turnstile on (`data.turnstileSiteKey`), the email form waits for a solved token.
+	let turnstileToken = $state('');
 
 	let passkeyError = $state<null | string>(null);
 	let busy = $state(false);
@@ -90,7 +94,15 @@
 				type="email"
 				value={data.accessEmail ?? ''}
 			/>
-			<button class="btn secondary" type="submit">Email me a sign-in link</button>
+			{#if data.turnstileSiteKey}
+				<Turnstile onToken={(token) => (turnstileToken = token)} siteKey={data.turnstileSiteKey} />
+				<input name="turnstileToken" type="hidden" value={turnstileToken} />
+			{/if}
+			<button
+				class="btn secondary"
+				disabled={Boolean(data.turnstileSiteKey) && !turnstileToken}
+				type="submit">Email me a sign-in link</button
+			>
 		</form>
 	{/if}
 

@@ -42,7 +42,7 @@
 			{#each sizes as s (s.size)}
 				<div class="heading-row">
 					<Title level={s.level} size={s.size}>The quick brown fox</Title>
-					<span class="heading-meta">{s.size} · {s.spec}</span>
+					<Span class="heading-meta" color="tertiary" mono size="xs">{s.size} · {s.spec}</Span>
 				</div>
 			{/each}
 		</Stack>
@@ -209,11 +209,8 @@ font-family: var(--font-mono);    /* code, tabular data */`}
 		justify-content: space-between;
 		gap: var(--spacing-md);
 	}
-	.heading-meta {
+	:global(.heading-meta) {
 		flex-shrink: 0;
-		font-family: var(--font-mono);
-		font-size: 10.5px;
-		color: var(--txt);
 	}
 	:global(.font-sample) {
 		margin: 0;

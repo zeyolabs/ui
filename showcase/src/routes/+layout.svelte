@@ -27,6 +27,7 @@
 	import SidebarBrand from '@zeyolabs/ui/sidebar/SidebarBrand.svelte';
 	import SidebarButton from '@zeyolabs/ui/sidebar/SidebarButton.svelte';
 	import SidebarGroup from '@zeyolabs/ui/sidebar/SidebarGroup.svelte';
+	import Span from '@zeyolabs/ui/text/Span.svelte';
 	import { theme } from '@zeyolabs/ui/theme/theme.svelte';
 	import { Toaster } from 'svelte-sonner';
 
@@ -74,7 +75,8 @@
 				</SidebarGroup>
 
 				{#snippet foot()}
-					<span class="tagline"><Layers size={13} /> Components &amp; tokens</span>
+					<Span class="tagline" color="secondary"><Layers size={13} /> Components &amp; tokens</Span
+					>
 					<SidebarButton aria-label="Toggle theme" onclick={() => theme.toggle()}>
 						{#if theme.dark}<Sun size={14} />{:else}<Moon size={14} />{/if}
 					</SidebarButton>
@@ -90,14 +92,13 @@
 <Toaster position="bottom-right" theme={theme.dark ? 'dark' : 'light'} />
 
 <style>
-	.tagline {
+	:global(.tagline) {
 		flex: 1;
 		min-width: 0;
 		display: flex;
 		align-items: center;
 		gap: 6px;
 		padding: 0 6px;
-		color: var(--txs);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;

@@ -15,6 +15,8 @@
 		TextField,
 	} from '@zeyolabs/ui/form/fields';
 	import { Input, SearchBar } from '@zeyolabs/ui/form/primitives';
+	import Cluster from '@zeyolabs/ui/layout/Cluster.svelte';
+	import Stack from '@zeyolabs/ui/layout/Stack.svelte';
 	import PageHero from '@zeyolabs/ui/page-hero/PageHero.svelte';
 	import InfoTip from '@zeyolabs/ui/popover/InfoTip.svelte';
 	import Popover from '@zeyolabs/ui/popover/Popover.svelte';
@@ -140,7 +142,7 @@
 	description="@zeyolabs/ui/form/fields: one radio option. Options that share a name form a group, and group holds the selected value, so the options can sit anywhere (a table row, beside other content), not only inside one wrapper. Styled and spaced like CheckboxField."
 	title="RadioField"
 >
-	<div class="flex flex-col gap-3">
+	<Stack gap="sm">
 		<RadioField name="plan" value="starter" bind:group={plan}>Starter</RadioField>
 		<RadioField
 			name="plan"
@@ -154,7 +156,7 @@
 			>Scale (not available)</RadioField
 		>
 		<Text color="secondary" size="sm">Selected: {plan}</Text>
-	</div>
+	</Stack>
 </ShowcaseSection>
 
 <ShowcaseSection
@@ -164,13 +166,13 @@
 	description="@zeyolabs/ui/popover — a small info icon whose tooltip shows on hover or keyboard focus. Use it for a short explanation next to a label or column header. align='right' makes the tooltip open leftwards, for one placed in the last column."
 	title="InfoTip"
 >
-	<div class="flex items-center gap-1.5">
+	<Cluster gap="xs" nowrap>
 		<Text>Match leads by</Text>
 		<InfoTip label="About matching leads">
 			Rows with the same value in this column count as the same lead, so each lead is only added
 			once.
 		</InfoTip>
-	</div>
+	</Cluster>
 </ShowcaseSection>
 
 <ShowcaseSection

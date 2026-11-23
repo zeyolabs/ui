@@ -2,6 +2,7 @@
 	import { Button } from '@zeyolabs/ui/form';
 	import Cluster from '@zeyolabs/ui/layout/Cluster.svelte';
 	import Grid from '@zeyolabs/ui/layout/Grid.svelte';
+	import Stack from '@zeyolabs/ui/layout/Stack.svelte';
 	import PageHero from '@zeyolabs/ui/page-hero/PageHero.svelte';
 	import Skeleton from '@zeyolabs/ui/skeleton/Skeleton.svelte';
 	import SkeletonButton from '@zeyolabs/ui/skeleton/SkeletonButton.svelte';
@@ -9,6 +10,7 @@
 	import SkeletonCircle from '@zeyolabs/ui/skeleton/SkeletonCircle.svelte';
 	import SkeletonRow from '@zeyolabs/ui/skeleton/SkeletonRow.svelte';
 	import SkeletonText from '@zeyolabs/ui/skeleton/SkeletonText.svelte';
+	import Span from '@zeyolabs/ui/text/Span.svelte';
 	import { toast } from 'svelte-sonner';
 
 	import ShowcaseSection from '#lib/showcase/ShowcaseSection.svelte';
@@ -34,22 +36,22 @@
 >
 	<div style="width: 100%;">
 		<Grid gap="md" minColumnWidth="140px">
-			<div class="prim-cell">
+			<Stack gap="sm">
 				<Skeleton h="1rem" w="100%" />
-				<span>Skeleton</span>
-			</div>
-			<div class="prim-cell">
+				<Span color="tertiary" mono size="xs">Skeleton</Span>
+			</Stack>
+			<Stack gap="sm">
 				<SkeletonCircle size="md" />
-				<span>SkeletonCircle</span>
-			</div>
-			<div class="prim-cell">
+				<Span color="tertiary" mono size="xs">SkeletonCircle</Span>
+			</Stack>
+			<Stack gap="sm">
 				<SkeletonButton />
-				<span>SkeletonButton</span>
-			</div>
-			<div class="prim-cell prim-cell-wide">
+				<Span color="tertiary" mono size="xs">SkeletonButton</Span>
+			</Stack>
+			<Stack class="prim-cell-wide" gap="sm">
 				<SkeletonText lastLineWidth="70%" lines={3} />
-				<span>SkeletonText</span>
-			</div>
+				<Span color="tertiary" mono size="xs">SkeletonText</Span>
+			</Stack>
 		</Grid>
 	</div>
 </ShowcaseSection>
@@ -93,18 +95,8 @@ toast('Just an update.');`}
 </ShowcaseSection>
 
 <style>
-	.prim-cell {
-		display: flex;
-		flex-direction: column;
-		gap: var(--spacing-sm);
-	}
-	.prim-cell-wide {
+	:global(.prim-cell-wide) {
 		grid-column: 1 / -1;
-	}
-	.prim-cell span {
-		font-size: 10.5px;
-		color: var(--txt);
-		font-family: var(--font-mono);
 	}
 	.composite-cell {
 		flex: 1;

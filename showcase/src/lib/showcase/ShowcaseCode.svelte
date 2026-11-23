@@ -1,12 +1,13 @@
 <script lang="ts">
 	import CopyButton from '@zeyolabs/ui/copy/CopyButton.svelte';
+	import Span from '@zeyolabs/ui/text/Span.svelte';
 
 	let { code }: { code: string } = $props();
 </script>
 
 <div class="showcase-code">
 	<div style="--txs: #9490a0;" class="showcase-code-bar">
-		<span>Code</span>
+		<Span>Code</Span>
 		<CopyButton clipboardText={() => Promise.resolve(code)} label={null} size="small" />
 	</div>
 	<pre><code>{code}</code></pre>

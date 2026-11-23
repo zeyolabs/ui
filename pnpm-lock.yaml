@@ -62,8 +62,8 @@ importers:
         specifier: 2.2.12
         version: 2.2.12
       '@zeyolabs/kit':
-        specifier: 2026.11.44
-        version: 2026.11.44(c0e767cacf77259d16d00411e81f3a40)
+        specifier: 2026.11.48
+        version: 2026.11.48(31cb28687188f5c5d3d70cf6ce36e1e6)
       eslint:
         specifier: 10.15.0
         version: 10.15.0(jiti@2.7.0)(supports-color@10.2.2)
@@ -110,8 +110,8 @@ importers:
         specifier: 1.73.0
         version: 1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
       '@zeyolabs/kit':
-        specifier: 2026.11.44
-        version: 2026.11.44(c0e767cacf77259d16d00411e81f3a40)
+        specifier: 2026.11.48
+        version: 2026.11.48(31cb28687188f5c5d3d70cf6ce36e1e6)
       '@zeyolabs/ui':
         specifier: workspace:*
         version: link:..
@@ -1409,14 +1409,17 @@ packages:
     resolution: {integrity: sha512-NAGrjn0Pitjqzq/GkgMC4kBYm233PQ8GffyQ9+kTA3AlNQYEzOf25EIM02BAHZv5FRJSpHpJk+OGUxVkOB93GQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@zeyolabs/kit@2026.11.44':
-    resolution: {integrity: sha512-DRj2ZhFBHJwjHVnYBkqwd+JJCj4CJf89rD5JuZxEjDpXC/ZWqsdvqK5PH9UFC2icTlz/E7uZqBgAJZFAUUaDOA==}
+  '@zeyolabs/kit@2026.11.48':
+    resolution: {integrity: sha512-Nd4FYifE8dsAXp51y+ryXPzQ3hJoT8mBPS0+4qnTiC5I/+qwk/cFtqS0TNVq50oC1DhXGCJffgIBGk2djthpXg==}
     engines: {node: '>=24.0.0', pnpm: ^11.0.0}
     peerDependencies:
       '@cloudflare/workers-types': '*'
       '@electric-sql/pglite': ^0.5.8
       '@sentry/sveltekit': ^11.4.0
+      '@sveltejs/adapter-cloudflare': ^9.0.0
       '@sveltejs/kit': ^3.1.1
+      '@sveltejs/vite-plugin-svelte': ^7.0.0
+      '@tailwindcss/vite': ^4.0.0
       drizzle-orm: ^0.45.3
       eslint: ^9.39.4 || ^10.0.0
       miniflare: ^4.20260730.0
@@ -1427,6 +1430,12 @@ packages:
       '@cloudflare/workers-types':
         optional: true
       '@electric-sql/pglite':
+        optional: true
+      '@sveltejs/adapter-cloudflare':
+        optional: true
+      '@sveltejs/vite-plugin-svelte':
+        optional: true
+      '@tailwindcss/vite':
         optional: true
       eslint:
         optional: true
@@ -3912,7 +3921,7 @@ snapshots:
       '@typescript-eslint/types': 8.72.2
       eslint-visitor-keys: 5.0.1
 
-  '@zeyolabs/kit@2026.11.44(c0e767cacf77259d16d00411e81f3a40)':
+  '@zeyolabs/kit@2026.11.48(31cb28687188f5c5d3d70cf6ce36e1e6)':
     dependencies:
       '@bufbuild/protobuf': 2.17.0
       '@clickhouse/client-web': 1.25.0
@@ -3944,6 +3953,9 @@ snapshots:
       zod: 4.6.7
     optionalDependencies:
       '@cloudflare/workers-types': 5.20261104.1
+      '@sveltejs/adapter-cloudflare': 9.0.0(@sveltejs/kit@3.2.0(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.2))(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(typescript@6.0.3)(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)))(@types/node@26.6.6)(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0))(workerd@1.20261118.1)(wrangler@4.165.0(@cloudflare/workers-types@5.20261104.1)(@types/node@26.6.6))
+      '@sveltejs/vite-plugin-svelte': 7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.2))(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0))
+      '@tailwindcss/vite': 4.3.5(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0))
       eslint: 10.15.0(jiti@2.7.0)(supports-color@10.2.2)
       vite: 8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)
     transitivePeerDependencies:

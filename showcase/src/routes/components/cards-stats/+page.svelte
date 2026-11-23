@@ -10,12 +10,14 @@
 	import FAQList from '@zeyolabs/ui/faq/FAQList.svelte';
 	import { Button } from '@zeyolabs/ui/form';
 	import Grid from '@zeyolabs/ui/layout/Grid.svelte';
+	import Stack from '@zeyolabs/ui/layout/Stack.svelte';
 	import ListRow from '@zeyolabs/ui/list-row/ListRow.svelte';
 	import MiniStat from '@zeyolabs/ui/mini-stat/MiniStat.svelte';
 	import PageHero from '@zeyolabs/ui/page-hero/PageHero.svelte';
 	import PercentageRing from '@zeyolabs/ui/percentage-ring/PercentageRing.svelte';
 	import { toPercentage } from '@zeyolabs/ui/schema';
 	import Stat from '@zeyolabs/ui/stat/Stat.svelte';
+	import Span from '@zeyolabs/ui/text/Span.svelte';
 	import Text from '@zeyolabs/ui/text/Text.svelte';
 
 	import ShowcaseSection from '#lib/showcase/ShowcaseSection.svelte';
@@ -290,10 +292,10 @@
 	title="PercentageRing"
 >
 	{#each rings as ring (ring.size)}
-		<div class="ring-demo">
+		<Stack align="center" gap="xs">
 			<PercentageRing color="var(--acc)" percentage={toPercentage(ring.pct)} size={ring.size} />
-			<span>{ring.size}</span>
-		</div>
+			<Span color="secondary" size="xs">{ring.size}</Span>
+		</Stack>
 	{/each}
 </ShowcaseSection>
 
@@ -326,16 +328,3 @@
 		/>
 	</div>
 </ShowcaseSection>
-
-<style>
-	.ring-demo {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: var(--spacing-xs);
-	}
-	.ring-demo span {
-		font-size: 11px;
-		color: var(--txs);
-	}
-</style>
