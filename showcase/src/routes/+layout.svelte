@@ -29,6 +29,7 @@
 	import SidebarGroup from '@zeyolabs/ui/sidebar/SidebarGroup.svelte';
 	import Span from '@zeyolabs/ui/text/Span.svelte';
 	import { theme } from '@zeyolabs/ui/theme/theme.svelte';
+	import UpdateOverlay from '@zeyolabs/ui/update/UpdateOverlay.svelte';
 	import { Toaster } from 'svelte-sonner';
 
 	import NavLink from '#lib/showcase/NavLink.svelte';
@@ -90,6 +91,7 @@
 </div>
 
 <Toaster position="bottom-right" theme={theme.dark ? 'dark' : 'light'} />
+<UpdateOverlay />
 
 <style>
 	:global(.tagline) {
