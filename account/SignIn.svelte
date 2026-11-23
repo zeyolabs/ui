@@ -9,6 +9,7 @@
 
 	import Button from '../form/Button.svelte';
 	import Input from '../form/primitives/Input.svelte';
+	import Divider from '../layout/Divider.svelte';
 	import Span from '../text/Span.svelte';
 	import Text from '../text/Text.svelte';
 	import Turnstile from '../turnstile/Turnstile.svelte';
@@ -80,7 +81,7 @@
 				{busy ? 'Waiting for passkey…' : 'Sign in with a passkey'}
 			</Button>
 			{#if passkeyError}<AuthAlert>{passkeyError}</AuthAlert>{/if}
-			<Text centered color="tertiary" size="sm">or</Text>
+			<Divider label="or" />
 		{/if}
 
 		<form action="/auth/email" method="post">
