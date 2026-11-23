@@ -17,6 +17,7 @@
 	import TabBlock from '@zeyolabs/ui/tabs/TabBlock.svelte';
 	import TabButton from '@zeyolabs/ui/tabs/TabButton.svelte';
 	import Text from '@zeyolabs/ui/text/Text.svelte';
+	import UpdateOverlay from '@zeyolabs/ui/update/UpdateOverlay.svelte';
 	import { toast } from 'svelte-sonner';
 
 	import ShowcaseSection from '#lib/showcase/ShowcaseSection.svelte';
@@ -64,6 +65,7 @@
 	let showLoading = $state(false);
 	let showError = $state(false);
 	let tab = $state('overview');
+	let updateShown = $state(false);
 
 	const tabPanels: Record<string, string> = {
 		activity: 'Activity panel — most recent events for this record.',
@@ -133,6 +135,16 @@
 			<Button variant="ghost-destructive">Delete campaign</Button>
 		{/snippet}
 	</ConfirmDialog>
+</ShowcaseSection>
+
+<ShowcaseSection
+	code={`<!-- updated from '$app/state' -->
+<UpdateOverlay show={updated.current} />`}
+	description="Put once in the root layout. Covers the page when a newer deploy is live (SvelteKit's version poll, or SentryConfig.clientErrors after an error from a stale tab) and reloads on click."
+	title="Update overlay"
+>
+	<Button onclick={() => (updateShown = true)}>Show update overlay</Button>
+	<UpdateOverlay show={updateShown} />
 </ShowcaseSection>
 
 <ShowcaseSection
