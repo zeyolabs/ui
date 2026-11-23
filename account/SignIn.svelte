@@ -80,7 +80,9 @@
 				{busy ? 'Waiting for passkey…' : 'Sign in with a passkey'}
 			</Button>
 			{#if passkeyError}<AuthAlert>{passkeyError}</AuthAlert>{/if}
-			<Text centered color="tertiary" size="sm">or</Text>
+			<div class="divider" role="separator">
+				<Span color="tertiary" size="sm" uppercase>or</Span>
+			</div>
 		{/if}
 
 		<form action="/auth/email" method="post">
@@ -118,6 +120,17 @@
 	}
 	form {
 		gap: 8px;
+	}
+	.divider {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+	.divider::before,
+	.divider::after {
+		flex: 1;
+		border-top: 1px solid var(--bd);
+		content: '';
 	}
 	.sign-in :global(.btn) {
 		width: 100%;
