@@ -13,6 +13,7 @@
 	import Table from '@zeyolabs/ui/table/Table.svelte';
 	import TableCell from '@zeyolabs/ui/table/TableCell.svelte';
 	import TableRow from '@zeyolabs/ui/table/TableRow.svelte';
+	import Span from '@zeyolabs/ui/text/Span.svelte';
 
 	import ShowcaseSection from '#lib/showcase/ShowcaseSection.svelte';
 
@@ -107,7 +108,7 @@
 	{row.name}
 {/snippet}
 {#snippet contactEmail(row: Contact)}
-	<span class="mono">{row.email}</span>
+	<Span mono size="sm">{row.email}</Span>
 {/snippet}
 {#snippet contactCompany(row: Contact)}
 	{row.company}
@@ -509,9 +510,5 @@ const sorted = $derived([...campaigns].sort(/* by sortKey/sortDir */));
 		flex-direction: column;
 		gap: var(--spacing-md);
 		width: 100%;
-	}
-	.mono {
-		font-family: var(--font-mono);
-		font-size: 12.5px;
 	}
 </style>

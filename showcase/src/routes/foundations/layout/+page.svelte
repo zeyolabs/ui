@@ -78,9 +78,9 @@
 	<Stack gap="sm">
 		{#each spacingSteps as step (step.name)}
 			<Cluster gap="sm">
-				<span class="spacing-label">{step.name}</span>
+				<Span class="spacing-label" color="secondary" mono size="xs">{step.name}</Span>
 				<div style:width={step.px} class="spacing-bar"></div>
-				<span class="spacing-px">{step.px}</span>
+				<Span color="tertiary" mono size="xs">{step.px}</Span>
 			</Cluster>
 		{/each}
 	</Stack>
@@ -397,22 +397,14 @@
 		border-radius: var(--radius-sm);
 	}
 
-	.spacing-label {
+	:global(.spacing-label) {
 		width: 24px;
 		flex-shrink: 0;
-		font-family: var(--font-mono);
-		font-size: 11px;
-		color: var(--txs);
 	}
 	.spacing-bar {
 		height: 14px;
 		background: var(--acc);
 		border-radius: var(--radius-xs);
-	}
-	.spacing-px {
-		font-family: var(--font-mono);
-		font-size: 11px;
-		color: var(--txt);
 	}
 
 	.viewport-demo {

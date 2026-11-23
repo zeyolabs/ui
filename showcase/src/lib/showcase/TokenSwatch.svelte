@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Span from '@zeyolabs/ui/text/Span.svelte';
 	import Text from '@zeyolabs/ui/text/Text.svelte';
 
 	let {
@@ -20,8 +21,8 @@
 		<code>--{name}</code>
 		<Text class="swatch-desc" color="secondary" size="sm">{desc}</Text>
 		<div class="swatch-values">
-			<span>{light}</span>
-			<span>{dark}</span>
+			<Span>{light}</Span>
+			<Span>{dark}</Span>
 		</div>
 	</div>
 </div>

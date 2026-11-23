@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AuthLoads } from '@zeyolabs/kit/auth/sveltekit/loads';
+	import type { AuthLoads } from '@zeyolabs/kit/auth/loads';
 
 	import { invalidateAll } from '$app/navigation';
 	import { page } from '$app/state';

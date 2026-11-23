@@ -30,6 +30,7 @@
 	} from '@zeyolabs/ui/form/fields';
 	import { SearchBar } from '@zeyolabs/ui/form/primitives';
 	import GroupedGrid from '@zeyolabs/ui/grouped-grid/GroupedGrid.svelte';
+	import Cluster from '@zeyolabs/ui/layout/Cluster.svelte';
 	import Grid from '@zeyolabs/ui/layout/Grid.svelte';
 	import Section from '@zeyolabs/ui/layout/Section.svelte';
 	import ListRow from '@zeyolabs/ui/list-row/ListRow.svelte';
@@ -342,10 +343,10 @@
 		<ComponentTile name="Skeleton" href={feedback('Primitives')}>
 			<div class="stack-xs w-full">
 				<Skeleton h="0.9rem" w="100%" />
-				<div class="skeleton-row">
+				<Cluster gap="sm" nowrap>
 					<SkeletonCircle size="sm" />
 					<SkeletonButton size="sm" />
-				</div>
+				</Cluster>
 			</div>
 		</ComponentTile>
 		<ComponentTile name="Toast" href={feedback('Toast')}>
@@ -438,11 +439,6 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 6px;
-	}
-	.skeleton-row {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-sm);
 	}
 	.popover-anchor {
 		position: relative;

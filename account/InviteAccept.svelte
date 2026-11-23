@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AuthLoads } from '@zeyolabs/kit/auth/sveltekit/loads';
+	import type { AuthLoads } from '@zeyolabs/kit/auth/loads';
 	import type { Snippet } from 'svelte';
 
 	import Text from '../text/Text.svelte';

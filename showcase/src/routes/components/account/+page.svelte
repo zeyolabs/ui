@@ -7,7 +7,14 @@
 
 	import ShowcaseSection from '#lib/showcase/ShowcaseSection.svelte';
 
-	const login = { accessEmail: null, error: null, next: '/', sent: false, token: null };
+	const login = {
+		accessEmail: null,
+		error: null,
+		next: '/',
+		sent: false,
+		token: null,
+		turnstileSiteKey: null,
+	};
 	const day = 24 * 60 * 60 * 1000;
 	const passkeys = [
 		{ createdAt: Date.now() - 30 * day, id: 'a', lastUsedAt: Date.now() - day, name: 'MacBook' },

@@ -8,6 +8,7 @@
 	import Stack from '@zeyolabs/ui/layout/Stack.svelte';
 	import PageHero from '@zeyolabs/ui/page-hero/PageHero.svelte';
 	import StatusRow from '@zeyolabs/ui/status-row/StatusRow.svelte';
+	import Span from '@zeyolabs/ui/text/Span.svelte';
 	import Title from '@zeyolabs/ui/text/Title.svelte';
 
 	import ShowcaseSection from '#lib/showcase/ShowcaseSection.svelte';
@@ -100,7 +101,7 @@
 >
 	<div style="width: 100%;">
 		<Stack gap="xs">
-			<span class="sm font-semibold tracking-wide text-(--txt) uppercase"> Every color </span>
+			<Span bold color="tertiary" size="sm" uppercase>Every color</Span>
 			<Cluster gap="xs">
 				{#each BADGE_COLORS as color (color)}
 					<Badge {color}>{colorNames[color]}</Badge>
@@ -110,9 +111,7 @@
 	</div>
 	<div style="width: 100%;">
 		<Stack gap="xs">
-			<span class="sm font-semibold tracking-wide text-(--txt) uppercase">
-				No dot — dot=&#123;false&#125;
-			</span>
+			<Span bold color="tertiary" size="sm" uppercase>No dot — dot=&#123;false&#125;</Span>
 			<Cluster gap="xs">
 				{#each BADGE_COLORS as color (color)}
 					<Badge {color} dot={false}>{colorNames[color]}</Badge>
@@ -122,9 +121,7 @@
 	</div>
 	<div style="width: 100%;">
 		<Stack gap="xs">
-			<span class="sm font-semibold tracking-wide text-(--txt) uppercase">
-				Dot and label, no pill — plain
-			</span>
+			<Span bold color="tertiary" size="sm" uppercase>Dot and label, no pill — plain</Span>
 			<Cluster gap="sm">
 				{#each BADGE_COLORS as color (color)}
 					<Badge {color} plain>{colorNames[color]}</Badge>
@@ -134,9 +131,7 @@
 	</div>
 	<div style="width: 100%;">
 		<Stack gap="xs">
-			<span class="sm font-semibold tracking-wide text-(--txt) uppercase">
-				A real domain mapping — order status
-			</span>
+			<Span bold color="tertiary" size="sm" uppercase>A real domain mapping — order status</Span>
 			<Cluster gap="xs">
 				{#each ORDER_STATUS_VIEW as status (status)}
 					<Badge color={ORDER_STATUS_COLOR[status]}>

@@ -4,6 +4,7 @@
 	import { Button, Combobox, ComboboxAction, Form, Option, SelectField } from '@zeyolabs/ui/form';
 	import PageHero from '@zeyolabs/ui/page-hero/PageHero.svelte';
 	import SkeletonButton from '@zeyolabs/ui/skeleton/SkeletonButton.svelte';
+	import Span from '@zeyolabs/ui/text/Span.svelte';
 
 	import { demoComboboxForm } from '#lib/remote/demo-combobox.remote.js';
 	import {
@@ -164,7 +165,7 @@
     <Option label={opt.label} value={opt.value}>{opt.label}</Option>
   {/each}
   {#snippet header()}
-    <span>{frameworkOptions.length} frameworks — pick your favorite</span>
+    <Span>{frameworkOptions.length} frameworks — pick your favorite</Span>
   {/snippet}
   {#snippet footer()}
     <ComboboxAction icon={Plus} onclick={requestNewFramework}>Request a framework</ComboboxAction>
@@ -178,7 +179,7 @@
 			<Option label={opt.label} value={opt.value}>{opt.label}</Option>
 		{/each}
 		{#snippet header()}
-			<span>{frameworkOptions.length} frameworks — pick your favorite</span>
+			<Span>{frameworkOptions.length} frameworks — pick your favorite</Span>
 		{/snippet}
 		{#snippet footer()}
 			<ComboboxAction icon={Plus} onclick={() => {}}>Request a framework</ComboboxAction>
