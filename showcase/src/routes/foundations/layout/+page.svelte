@@ -2,6 +2,7 @@
 	import Card from '@zeyolabs/ui/card/Card.svelte';
 	import Button from '@zeyolabs/ui/form/Button.svelte';
 	import Cluster from '@zeyolabs/ui/layout/Cluster.svelte';
+	import Divider from '@zeyolabs/ui/layout/Divider.svelte';
 	import Grid from '@zeyolabs/ui/layout/Grid.svelte';
 	import PageHeader from '@zeyolabs/ui/layout/PageHeader.svelte';
 	import Section from '@zeyolabs/ui/layout/Section.svelte';
@@ -381,6 +382,18 @@
 				</button>
 			</Cluster>
 		{/each}
+	</Stack>
+</ShowcaseSection>
+
+<ShowcaseSection
+	code={`<Divider />
+<Divider label="or" />`}
+	description="@zeyolabs/ui/layout/Divider: a horizontal line, or with a label a line, the label and a line, e.g. between the passkey button and the email form on a sign-in page."
+	title="Divider"
+>
+	<Stack gap="md">
+		<Divider />
+		<Divider label="or" />
 	</Stack>
 </ShowcaseSection>
 

@@ -9,6 +9,7 @@
 
 	import Button from '../form/Button.svelte';
 	import Input from '../form/primitives/Input.svelte';
+	import Divider from '../layout/Divider.svelte';
 	import Span from '../text/Span.svelte';
 	import Text from '../text/Text.svelte';
 	import Turnstile from '../turnstile/Turnstile.svelte';
@@ -80,9 +81,7 @@
 				{busy ? 'Waiting for passkey…' : 'Sign in with a passkey'}
 			</Button>
 			{#if passkeyError}<AuthAlert>{passkeyError}</AuthAlert>{/if}
-			<div class="divider" role="separator">
-				<Span color="tertiary" size="sm" uppercase>or</Span>
-			</div>
+			<Divider label="or" />
 		{/if}
 
 		<form action="/auth/email" method="post">
@@ -120,17 +119,6 @@
 	}
 	form {
 		gap: 8px;
-	}
-	.divider {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-	}
-	.divider::before,
-	.divider::after {
-		flex: 1;
-		border-top: 1px solid var(--bd);
-		content: '';
 	}
 	.sign-in :global(.btn) {
 		width: 100%;
