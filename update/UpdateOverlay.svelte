@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Button } from '@zeyolabs/ui/form';
+	import Text from '@zeyolabs/ui/text/Text.svelte';
 
 	let {
 		label = 'Reload to update',
@@ -16,11 +17,11 @@
 {#if show}
 	<div
 		class="fixed inset-0 z-99999 flex flex-col items-center justify-center gap-4 bg-black/80 p-6 text-center"
-		aria-labelledby="update-overlay-message"
+		aria-label={message}
 		aria-modal="true"
 		role="alertdialog"
 	>
-		<p id="update-overlay-message" class="text-base font-medium text-white">{message}</p>
+		<Text bold centered color="white">{message}</Text>
 		<Button onclick={() => location.reload()}>{label}</Button>
 	</div>
 {/if}
