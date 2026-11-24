@@ -16,8 +16,8 @@ importers:
         specifier: 3.12.4
         version: 3.12.4
       '@lucide/svelte':
-        specifier: 1.73.0
-        version: 1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
+        specifier: 1.78.0
+        version: 1.78.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
       '@sentry/sveltekit':
         specifier: 11.12.0
         version: 11.12.0(@cloudflare/workers-types@5.20261104.1)(@sveltejs/kit@3.2.0(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.2))(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(typescript@6.0.3)(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0))(wrangler@4.165.0(@cloudflare/workers-types@5.20261104.1)(@types/node@26.6.6))
@@ -107,8 +107,8 @@ importers:
   showcase:
     dependencies:
       '@lucide/svelte':
-        specifier: 1.73.0
-        version: 1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
+        specifier: 1.78.0
+        version: 1.78.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
       '@zeyolabs/kit':
         specifier: 2026.11.48
         version: 2026.11.48(31cb28687188f5c5d3d70cf6ce36e1e6)
@@ -738,8 +738,8 @@ packages:
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
-  '@lucide/svelte@1.73.0':
-    resolution: {integrity: sha512-Rz1uA9aTJ7HA/j2Hf9Dm2OVM8NtkzHnNeIQvVWoUkpf1ZD/7dR9cB4ftjbOiWAeJrKkEAVvTDrcVtITFdx6KAA==}
+  '@lucide/svelte@1.78.0':
+    resolution: {integrity: sha512-j/UQMuE3o/JU4oq3DAUlQpmTCG5JsLi4LxEpNS7mIGqVxfmV8wozq3MeOSNHcsk07dHC0RZtUfpBrxyEMelOHA==}
     peerDependencies:
       svelte: ^5
 
@@ -3387,7 +3387,7 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@lucide/svelte@1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))':
+  '@lucide/svelte@1.78.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))':
     dependencies:
       svelte: 5.57.3(@typescript-eslint/types@8.72.2)
 
