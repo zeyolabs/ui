@@ -287,9 +287,9 @@
 			</Grid>
 		</div>
 		<div>
-			<Text class="grid-demo-caption" color="tertiary" size="sm"
-				>minColumnWidth="120px" — resize the window</Text
-			>
+			<Text class="grid-demo-caption" color="tertiary" size="sm">
+				minColumnWidth="120px" — resize the window
+			</Text>
 			<Grid gap="sm" minColumnWidth="120px">
 				{#each Array.from({ length: 6 }) as _, i (i)}
 					<div class="fill-block fill-block--sm">Card {i + 1}</div>
@@ -297,9 +297,9 @@
 			</Grid>
 		</div>
 		<div>
-			<Text class="grid-demo-caption" color="tertiary" size="sm"
-				>columns="1fr 300px" stack — shrink the browser below 960px</Text
-			>
+			<Text class="grid-demo-caption" color="tertiary" size="sm">
+				columns="1fr 300px" stack — shrink the browser below 960px
+			</Text>
 			<Grid columns="1fr 300px" gap="md" stack>
 				<div class="fill-block fill-block--sm">1fr</div>
 				<div class="fill-block fill-block--sm">300px, collapses below 960px</div>

@@ -121,9 +121,9 @@
 			</FieldLabel>
 		{/if}
 		{#if showValue}
-			<span class="form-slider-value"
-				>{range ? `${rangeValue[0]} – ${rangeValue[1]}` : singleValue}</span
-			>
+			<span class="form-slider-value">
+				{range ? `${rangeValue[0]} – ${rangeValue[1]}` : singleValue}
+			</span>
 		{/if}
 	</div>
 

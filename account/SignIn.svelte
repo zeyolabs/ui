@@ -102,8 +102,10 @@
 			<button
 				class="btn secondary"
 				disabled={Boolean(data.turnstileSiteKey) && !turnstileToken}
-				type="submit">Email me a sign-in link</button
+				type="submit"
 			>
+				Email me a sign-in link
+			</button>
 		</form>
 	{/if}
 

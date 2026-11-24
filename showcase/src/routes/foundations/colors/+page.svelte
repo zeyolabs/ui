@@ -74,14 +74,14 @@
 />
 
 <div class="note">
-	Sourced from <code>@zeyolabs/ui/tokens.css</code> — the single <code>:root</code>/<code
-		>.dark</code
-	>
+	Sourced from <code>@zeyolabs/ui/tokens.css</code> — the single <code>:root</code>/<code>
+		.dark
+	</code>
 	block every app (<code>dashboard</code>, <code>admin</code>, <code>marketing</code>,
-	<code>ui</code>) imports, rather than a per-app copy. A separate shadcn-style token set (<code
-		>--background</code
-	>, <code>--primary</code>, …) also exists per-app for a couple of Tailwind/shadcn utility classes
-	— it's legacy and not shown here.
+	<code>ui</code>) imports, rather than a per-app copy. A separate shadcn-style token set (<code>
+		--background
+	</code>, <code>--primary</code>, …) also exists per-app for a couple of Tailwind/shadcn utility
+	classes — it's legacy and not shown here.
 </div>
 
 {#each groups as group (group.title)}

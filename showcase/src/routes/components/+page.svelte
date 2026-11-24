@@ -300,12 +300,12 @@
 					<MoreHorizontal size={13} /> Options
 				</Button>
 				<Popover width={160} bind:open={popoverOpen}>
-					<button class="popover-item" onclick={() => (popoverOpen = false)} type="button"
-						>Rename</button
-					>
-					<button class="popover-item" onclick={() => (popoverOpen = false)} type="button"
-						>Archive</button
-					>
+					<button class="popover-item" onclick={() => (popoverOpen = false)} type="button">
+						Rename
+					</button>
+					<button class="popover-item" onclick={() => (popoverOpen = false)} type="button">
+						Archive
+					</button>
 				</Popover>
 			</div>
 		</ComponentTile>
@@ -362,8 +362,9 @@
 			</div>
 		</ComponentTile>
 		<ComponentTile name="SwitchField" href={forms('A complete form')}>
-			<SwitchField name="urgent" form={demoContactForm} optional variant="onoff">Urgent</SwitchField
-			>
+			<SwitchField name="urgent" form={demoContactForm} optional variant="onoff">
+				Urgent
+			</SwitchField>
 		</ComponentTile>
 		<ComponentTile name="CheckboxField" href={forms('A complete form')}>
 			<CheckboxField name="subscribe" form={demoContactForm} optional>Subscribe</CheckboxField>
@@ -401,9 +402,9 @@
 		<Eyebrow>More</Eyebrow>
 		<Text color="secondary" size="sm">
 			Not every primitive is demoed live here — some need real app context this static showcase
-			doesn't have (a route tree, a live session, a WebSocket). <a href={resolve('reference')}
-				>See the full reference</a
-			> for the rest.
+			doesn't have (a route tree, a live session, a WebSocket). <a href={resolve('reference')}>
+				See the full reference
+			</a> for the rest.
 		</Text>
 	</Card>
 </Section>

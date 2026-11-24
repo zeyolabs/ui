@@ -152,9 +152,9 @@
 		>
 			Growth
 		</RadioField>
-		<RadioField name="plan" disabled value="scale" bind:group={plan}
-			>Scale (not available)</RadioField
-		>
+		<RadioField name="plan" disabled value="scale" bind:group={plan}>
+			Scale (not available)
+		</RadioField>
 		<Text color="secondary" size="sm">Selected: {plan}</Text>
 	</Stack>
 </ShowcaseSection>
