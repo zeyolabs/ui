@@ -76,8 +76,9 @@
 				</SidebarGroup>
 
 				{#snippet foot()}
-					<Span class="tagline" color="secondary"><Layers size={13} /> Components &amp; tokens</Span
-					>
+					<Span class="tagline" color="secondary">
+						<Layers size={13} /> Components &amp; tokens
+					</Span>
 					<SidebarButton aria-label="Toggle theme" onclick={() => theme.toggle()}>
 						{#if theme.dark}<Sun size={14} />{:else}<Moon size={14} />{/if}
 					</SidebarButton>

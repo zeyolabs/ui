@@ -120,9 +120,9 @@
 			design system's tokens.
 		</li>
 	</ul>
-	<Text class="not-a-button-text" color="secondary" size="sm"
-		>Everything with a color and a size is a <code>&lt;Button&gt;</code>.</Text
-	>
+	<Text class="not-a-button-text" color="secondary" size="sm">
+		Everything with a color and a size is a <code>&lt;Button&gt;</code>.
+	</Text>
 </div>
 
 <style>

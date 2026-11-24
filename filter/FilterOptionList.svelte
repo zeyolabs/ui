@@ -106,9 +106,9 @@
 				role="option"
 				tabindex="-1"
 			>
-				<span class="box"
-					>{#if on}<Check size={10} />{/if}</span
-				>
+				<span class="box">
+					{#if on}<Check size={10} />{/if}
+				</span>
 				<span class="text">{option.label}</span>
 				{#if option.count !== undefined}<span class="count">{option.count}</span>{/if}
 			</div>
