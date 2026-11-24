@@ -34,6 +34,10 @@
 			};
 			widgetId = turnstile.render(container, {
 				callback: (token) => onToken(token),
+				// Without it Turnstile throws each failed challenge (e.g. 600010 from a bot or a
+				// locked-down browser) as an uncaught error; it retries by itself and the widget
+				// shows the failure.
+				'error-callback': () => true,
 				'expired-callback': restart,
 				'response-field': false,
 				sitekey: siteKey,
