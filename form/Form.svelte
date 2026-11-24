@@ -71,6 +71,19 @@
 		hidden ? Object.entries(hidden).filter(([, value]) => value != null && value !== '') : []
 	);
 
+	// A browser extension (autofill, translation) may add its own named inputs to the form, and
+	// SvelteKit throws `form_field_unbound` on any field not bound to the remote form. Every
+	// `FormData` built from the form fires `formdata` first, so drop those entries there. Bound
+	// names end with `/<form id>`; the action carries the id, plus `/<key>` for a `.for(key)` form.
+	function dropUnboundFields(event: FormDataEvent) {
+		const action = new URLSearchParams(remote.action.split('?')[1] ?? '').get('/remote');
+		if (!action) return;
+		const suffix = '/' + action.split('/').slice(0, 2).join('/');
+		for (const name of new Set(event.formData.keys())) {
+			if (!name.replace(/\.[xy]$/, '').endsWith(suffix)) event.formData.delete(name);
+		}
+	}
+
 	// Force enctype after the remote-form spread applies (which sets its own enctype).
 	// Defaults to multipart when the form contains file inputs, so consumers can't forget it.
 	function applyEnctype(node: HTMLFormElement) {
@@ -83,6 +96,7 @@
 <form
 	class={className}
 	novalidate
+	onformdata={dropUnboundFields}
 	oninput={(event) => {
 		remote.validate();
 		dirty = true;

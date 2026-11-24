@@ -5,6 +5,8 @@ export type TurnstileApi = {
 		container: HTMLElement,
 		options: {
 			callback: (token: string) => void;
+			/** Return true to mark the error handled, so Turnstile doesn't throw it. */
+			'error-callback': (code: string) => boolean;
 			'expired-callback': () => void;
 			'response-field': boolean;
 			sitekey: string;
