@@ -1,6 +1,6 @@
 name: Deploy showcase
 
-# Deploys showcase/ (ui.pureleaves.co.uk) on every push to main.
+# Deploys showcase/ (ui.zeyo.dev) on every push to main.
 # CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID come from the production environment, which only
 # accepts jobs from main: branches and pull requests can never reach them.
 on:
