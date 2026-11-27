@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+@docs/typography.md
+
 `@zeyolabs/ui`: shared, project-agnostic Svelte 5 components for SvelteKit 3 apps.
 `showcase/` is the live component reference.
 
