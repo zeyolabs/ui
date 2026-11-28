@@ -9,7 +9,7 @@ export type HeadSite = {
 	/** Absolute URL of the picture link previews show, unless a page passes its own. */
 	shareImage?: string;
 	siteName: string;
-	/** The public origin, e.g. `https://www.keycrox.co.uk`. Without it, no canonical or share tags. */
+	/** The public origin, e.g. `https://www.example.co.uk`. Without it, no canonical or share tags. */
 	siteUrl?: string;
 };
 
