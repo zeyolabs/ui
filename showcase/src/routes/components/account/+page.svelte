@@ -22,7 +22,7 @@
 	];
 	const invite = {
 		error: null,
-		invite: { accountName: 'Pure Leaves', email: 'sam@example.com' },
+		invite: { accountName: 'Example Shop', email: 'sam@example.com' },
 		signedInAs: 'sam@example.com',
 		token: 'demo',
 	};
@@ -39,13 +39,13 @@
 />
 
 <ShowcaseSection
-	code={`<AuthCard title="Pure Leaves admin" accent>
+	code={`<AuthCard title="Example Shop admin" accent>
 	<SignIn {data} intro="Sign in with a passkey or an email link." />
 </AuthCard>`}
 	description="Passkey where the browser has one, else an emailed link. Errors and the link's 'finish signing in' step come from the load."
 	title="Sign in"
 >
-	<AuthCard accent title="Pure Leaves admin">
+	<AuthCard accent title="Example Shop admin">
 		<SignIn data={login} intro="Sign in with a passkey or an email link." />
 	</AuthCard>
 </ShowcaseSection>
