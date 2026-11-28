@@ -158,7 +158,7 @@
 	"devDependencies": {
 		"@eslint/compat": "2.1.1",
 		"@eslint/js": "10.0.1",
-		"@zeyolabs/kit": "2026.11.64",
+		"@zeyolabs/kit": "2026.11.65",
 		"@sveltejs/kit": "3.4.0",
 		"@types/flickity": "2.2.12",
 		"eslint": "10.15.0",
