@@ -62,8 +62,8 @@ importers:
         specifier: 2.2.12
         version: 2.2.12
       '@zeyolabs/kit':
-        specifier: 2026.11.65
-        version: 2026.11.65(cea69cb379b1170649435769bbf852cf)
+        specifier: 2026.11.66
+        version: 2026.11.66(cea69cb379b1170649435769bbf852cf)
       eslint:
         specifier: 10.15.0
         version: 10.15.0(jiti@2.7.0)(supports-color@10.2.2)
@@ -110,8 +110,8 @@ importers:
         specifier: 1.78.0
         version: 1.78.0(svelte@5.59.1(@typescript-eslint/types@8.72.2))
       '@zeyolabs/kit':
-        specifier: 2026.11.65
-        version: 2026.11.65(cea69cb379b1170649435769bbf852cf)
+        specifier: 2026.11.66
+        version: 2026.11.66(cea69cb379b1170649435769bbf852cf)
       '@zeyolabs/ui':
         specifier: workspace:*
         version: link:..
@@ -1464,8 +1464,8 @@ packages:
     resolution: {integrity: sha512-k4lsFVpRZICbltkIEEH4hZRkwXkqDF1GHBpClKQOHQY+RkoZAAuyc1ci3I6p+CB6v3U4jaHIUshc4RzzQXZWLg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@zeyolabs/kit@2026.11.65':
-    resolution: {integrity: sha512-cKiUnta2zobQJ61/nLiAKvoOV/SFkzZ9kEFQhc0AaJLwgAVrkclokX3cLYk7I7ll8SXYJMy6gGR4Zkr1vJlQaA==}
+  '@zeyolabs/kit@2026.11.66':
+    resolution: {integrity: sha512-7vDbedg/iRk/e32QQOV7EskMpmTPoVNw6vuSUYbMqo4ueWm4kG8x6TVtaVWDAfUZ0AztD9IxiXNpLN/9Rg88eA==}
     engines: {node: '>=24.0.0', pnpm: ^11.0.0}
     peerDependencies:
       '@cloudflare/workers-types': '*'
@@ -4081,7 +4081,7 @@ snapshots:
       '@typescript-eslint/types': 8.73.0
       eslint-visitor-keys: 5.0.1
 
-  '@zeyolabs/kit@2026.11.65(cea69cb379b1170649435769bbf852cf)':
+  '@zeyolabs/kit@2026.11.66(cea69cb379b1170649435769bbf852cf)':
     dependencies:
       '@bufbuild/protobuf': 2.17.0
       '@clickhouse/client-web': 1.25.0
