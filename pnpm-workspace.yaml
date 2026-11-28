@@ -6,7 +6,6 @@ overrides:
   undici: 8.13.1
 
 allowBuilds:
-  core-js-pure: true
   esbuild: true
   sharp: true
   workerd: true
